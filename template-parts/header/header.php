@@ -7,7 +7,6 @@
  */
 ?>
 
-
 <nav class="navbar navbar-area navbar-expand-lg">
     <div class="container custom-container">
         <div class="responsive-mobile-menu">
@@ -44,7 +43,7 @@
         </div>
 
         <div class="header-btn">
-            <a href="#">Speak to an expert <?php echo drilllcorp_get_svg_icon('right_arrow_bigger'); ?></a>
+            <a href="#">Contact US</a>
         </div>
         
     </div>

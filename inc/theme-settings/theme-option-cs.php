@@ -444,7 +444,7 @@ if (class_exists('CSF')) {
 				'default' => true,
 				'desc'    => wp_kses(__('you can <mark> show/hide</mark> navbar button of header two', 'drilllcorp'), $allowed_html),
 			),
-			
+
 			array(
 				'id'         => 'footer_social_repeater',
 				'type'       => 'repeater',
@@ -466,7 +466,8 @@ if (class_exists('CSF')) {
 					),
 				)
 			),
-			
+
+			// Footer First Column Menu
 			array(
 				'id'     => 'footer_first_column_menu',
 				'type'   => 'repeater',
@@ -486,6 +487,8 @@ if (class_exists('CSF')) {
 					),
 				)
 			),
+
+			// Footer Second Column Menu
 			array(
 				'id'     => 'footer_second_column_menu',
 				'type'   => 'repeater',
@@ -506,6 +509,7 @@ if (class_exists('CSF')) {
 				)
 			),
 
+			// Footer Location
 			array(
 				'id'     => 'footer_location',
 				'type'   => 'repeater',
@@ -523,16 +527,29 @@ if (class_exists('CSF')) {
 						'title'   => esc_html__('Footer Location Item Description', 'drilllcorp'),
 						'default' => esc_html__('Reuterstr. 23, 12043 Berlin, Germany', 'drilllcorp'),
 					),
-					array(
-						'id'      => 'footer_location_item_phone_number',
-						'type'    => 'text',
-						'title'   => esc_html__('Footer Location Item Phone Number', 'drilllcorp'),
-						'default' => '854 05456 0145'
-					),
+					
 				)
 			),
 
-			
+			// Footer contact info
+			array(
+				'type'    => 'subheading',
+				'content' => '<h3>' . esc_html__('Footer Contact Info Options', 'drilllcorp') . '</h3>'
+			),
+			array(
+				'id'      => 'footer_contact_mail',
+				'type'    => 'text',
+				'title'   => esc_html__('Footer Mail', 'drilllcorp'),
+				'default' => esc_html__('info@drilllcorp.com', 'drilllcorp'),
+			),
+			array(
+				'id'      => 'footer_contact_phone',
+				'type'    => 'text',
+				'title'   => esc_html__('Footer Phone Number', 'drilllcorp'),
+				'default' => esc_html__('854 05456 0145', 'drilllcorp'),
+			),
+
+			// Footer Copyright Area
 			array(
 				'type'    => 'subheading',
 				'content' => '<h3>' . esc_html__('Footer Copyright Area Options', 'drilllcorp') . '</h3>'
@@ -558,7 +575,7 @@ if (class_exists('CSF')) {
 				)
 			),
 
-		
+
 			array(
 				'id'    => 'copyright_text',
 				'title' => esc_html__('Copyright Area Text', 'drilllcorp'),
