@@ -433,41 +433,62 @@ if (class_exists('CSF')) {
 				'library' => 'image',
 				'desc'    => wp_kses(__('you can upload <mark> logo</mark> here it will overwrite customizer uploaded logo', 'drilllcorp'), $allowed_html),
 			),
+
+			// Footer Content
 			array(
 				'type'    => 'subheading',
-				'content' => '<h3>' . esc_html__('Footer Social Item Settings', 'drilllcorp') . '</h3>'
-			),
-			array(
-				'id'      => 'footer_social_icon',
-				'type'    => 'switcher',
-				'title'   => esc_html__('FOLLOW US', 'drilllcorp'),
-				'default' => true,
-				'desc'    => wp_kses(__('you can <mark> show/hide</mark> navbar button of header two', 'drilllcorp'), $allowed_html),
+				'content' => '<h3>' . esc_html__('Footer Conetent Settings', 'drilllcorp') . '</h3>'
 			),
 
 			array(
-				'id'         => 'footer_social_repeater',
-				'type'       => 'repeater',
-				'title'      => esc_html__('Social Item Repeater', 'drilllcorp'),
-				'dependency' => array('footer_social_icon', '==', 'true'),
-				'fields'     => array(
-					array(
-						'id'      => 'footer_social_icon_item_icon',
-						'type'    => 'media',
-						'title'   => esc_html__('Logo', 'drilllcorp'),
-						'library' => 'image',
-						'desc'    => wp_kses(__('you can upload <mark> logo</mark> here it will overwrite customizer uploaded logo', 'drilllcorp'), $allowed_html),
-					),
-					array(
-						'id'      => 'footer_social_icon_item_url',
-						'type'    => 'text',
-						'title'   => esc_html__('Social URL', 'drilllcorp'),
-						'default' => '#'
-					),
-				)
+				'id'      => 'footer_content_sub_title',
+				'type'    => 'text',
+				'title'   => esc_html__('Footer Content Sub Title', 'drilllcorp'),
+				'default' => esc_html__('Capability Download Center', 'drilllcorp')
+			),
+
+			array(
+				'id'      => 'footer_content_sub_desc',
+				'type'    => 'textarea',
+				'title'   => esc_html__('Footer Content Sub Description', 'drilllcorp'),
+				'default' => esc_html__('Create a structured PDF including performance records, fleet resources, and HSE metrics — ready for evaluation.', 'drilllcorp')
+			),
+
+			array(
+				'id'      => 'footer_content_download_icon',
+				'type'    => 'media',
+				'title'   => esc_html__('Footer Content Download Image', 'drilllcorp'),
+				'library' => 'image',
+			),
+
+			array(
+				'id'      => 'footer_content_download_link',
+				'type'    => 'link',
+				'title'   => esc_html__('Footer Content Download Link', 'drilllcorp'),
+				'default' => '#'
+			),
+
+
+			array(
+				'id'      => 'footer_content_view_capabilities_icon',
+				'type'    => 'media',
+				'title'   => esc_html__('Footer Content View Capabilities Image', 'drilllcorp'),
+				'library' => 'image',
+			),
+
+			array(
+				'id'      => 'footer_content_view_capabilities_link',
+				'type'    => 'link',
+				'title'   => esc_html__('Footer Content Download Link', 'drilllcorp'),
+				'default' => '#'
 			),
 
 			// Footer First Column Menu
+			array(
+				'type'    => 'subheading',
+				'content' => '<h3>' . esc_html__('Footer Menu Settings', 'drilllcorp') . '</h3>'
+			),
+
 			array(
 				'id'     => 'footer_first_column_menu',
 				'type'   => 'repeater',
@@ -511,10 +532,23 @@ if (class_exists('CSF')) {
 
 			// Footer Location
 			array(
+				'type'    => 'subheading',
+				'content' => '<h3>' . esc_html__('Footer Location Settings', 'drilllcorp') . '</h3>'
+			),
+
+			array(
 				'id'     => 'footer_location',
 				'type'   => 'repeater',
 				'title'  => esc_html__('Footer Location', 'drilllcorp'),
 				'fields' => array(
+					array(
+						'id'      => 'footer_location_item_icon',
+						'type'    => 'media',
+						'library' => 'image',
+						'title'   => esc_html__('Footer Location Item Icon', 'drilllcorp'),
+						'default' => esc_html__('fas fa-map-marker-alt', 'drilllcorp'),
+					),
+
 					array(
 						'id'      => 'footer_location_item_title',
 						'type'    => 'text',
@@ -534,8 +568,9 @@ if (class_exists('CSF')) {
 			// Footer contact info
 			array(
 				'type'    => 'subheading',
-				'content' => '<h3>' . esc_html__('Footer Contact Info Options', 'drilllcorp') . '</h3>'
+				'content' => '<h3>' . esc_html__('Footer Contact Info', 'drilllcorp') . '</h3>'
 			),
+
 			array(
 				'id'      => 'footer_contact_mail',
 				'type'    => 'text',
@@ -549,25 +584,72 @@ if (class_exists('CSF')) {
 				'default' => esc_html__('854 05456 0145', 'drilllcorp'),
 			),
 
-			// Footer Copyright Area
+			// Footer Social Item
 			array(
 				'type'    => 'subheading',
-				'content' => '<h3>' . esc_html__('Footer Copyright Area Options', 'drilllcorp') . '</h3>'
+				'content' => '<h3>' . esc_html__('Footer Social Item Settings', 'drilllcorp') . '</h3>'
 			),
 
 			array(
-				'id'     => 'footer_copyright_bottom_menu',
+				'id'         => 'footer_social_repeater',
+				'type'       => 'repeater',
+				'title'      => esc_html__('Social Item Repeater', 'drilllcorp'),
+				'fields'     => array(
+					array(
+						'id'      => 'footer_social_icon_item_icon',
+						'type'    => 'media',
+						'title'   => esc_html__('Logo', 'drilllcorp'),
+						'library' => 'image',
+						'desc'    => wp_kses(__('you can upload <mark> logo</mark> here it will overwrite customizer uploaded logo', 'drilllcorp'), $allowed_html),
+					),
+					array(
+						'id'      => 'footer_social_icon_item_url',
+						'type'    => 'text',
+						'title'   => esc_html__('Social URL', 'drilllcorp'),
+						'default' => '#'
+					),
+				)
+			),
+			
+			// footer Award Logo
+			array(
+				'type'    => 'subheading',
+				'content' => '<h3>' . esc_html__('Footer Award Logo Settings', 'drilllcorp') . '</h3>'
+			),
+
+			array(
+				'id'         => 'footer_award_repeater',
+				'type'       => 'repeater',
+				'title'      => esc_html__('Award Logo Item Repeater', 'drilllcorp'),
+				'fields'     => array(
+					array(
+						'id'      => 'footer_award_image',
+						'type'    => 'media',
+						'library' => 'image',
+						'title'   => esc_html__('Award Logo', 'drilllcorp'),
+					),
+				)
+			),
+
+			// Footer Copyright Area
+			array(
+				'type'    => 'subheading',
+				'content' => '<h3>' . esc_html__('Footer Bottom Menu', 'drilllcorp') . '</h3>'
+			),
+
+			array(
+				'id'     => 'footer_bottom_menu',
 				'type'   => 'repeater',
-				'title'  => esc_html__('Footer Copyright Bottom Menu', 'drilllcorp'),
+				'title'  => esc_html__('Footer Bottom Menu', 'drilllcorp'),
 				'fields' => array(
 					array(
-						'id'      => 'footer_copyright_bottom_menu_item_title',
+						'id'      => 'footer_bottom_menu_item_title',
 						'type'    => 'text',
-						'title'   => esc_html__('Footer Copyright Bottom Menu Title', 'drilllcorp'),
+						'title'   => esc_html__('Footer Bottom Menu Title', 'drilllcorp'),
 						'default' => esc_html__('Home', 'drilllcorp'),
 					),
 					array(
-						'id'      => 'footer_copyright_bottom_menu_item_url',
+						'id'      => 'footer_bottom_menu_item_url',
 						'type'    => 'text',
 						'title'   => esc_html__('Menu URL', 'drilllcorp'),
 						'default' => '#'
@@ -575,6 +657,11 @@ if (class_exists('CSF')) {
 				)
 			),
 
+			// Footer Copyright Area
+			array(
+				'type'    => 'subheading',
+				'content' => '<h3>' . esc_html__('Footer Copyright Area Options', 'drilllcorp') . '</h3>'
+			),
 
 			array(
 				'id'    => 'copyright_text',

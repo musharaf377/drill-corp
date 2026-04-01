@@ -33,29 +33,87 @@
   });
 
 
+   /* ==============================
+     Mobile menu click function
+    =============================== */
+
+  function openMobileMenu() {
+    $('#drilllcorp_main_menu').addClass('show');
+    $('.navbar-toggler').addClass('active');
+    $('body').addClass('menu-open');
+    $('.mobile-menu-overlay').addClass('active');
+  }
+
+  function closeMobileMenu() {
+    $('#drilllcorp_main_menu').removeClass('show');
+    $('.navbar-toggler').removeClass('active');
+    $('body').removeClass('menu-open');
+    $('.mobile-menu-overlay').removeClass('active');
+  }
+
+  // Toggle navbar menu
+  $(document).on("click", ".navbar-toggler", function (e) {
+    e.preventDefault();
+    if ($('#drilllcorp_main_menu').hasClass('show')) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+
+  // Close menu when clicking a nav link
+  $(document).on('click', '#drilllcorp_main_menu .nav-link', function () {
+    closeMobileMenu();
+  });
+
+  // Close menu when clicking the overlay
+  $(document).on('click', '.mobile-menu-overlay', function () {
+    closeMobileMenu();
+  });
+
+  // Close menu when clicking outside
+  $(document).on('click', function (e) {
+    if (!$(e.target).closest('#drilllcorp_main_menu').length &&
+      !$(e.target).closest('.navbar-toggler').length &&
+      !$(e.target).hasClass('mobile-menu-overlay') &&
+      $('#drilllcorp_main_menu').hasClass('show')) {
+      closeMobileMenu();
+    }
+  });
+
   /**
-     * Mobile menu click function
-     */
-    $(document).on("click", ".navbar-toggler", function () {
-      $(this).toggleClass("active");
-      $("#homiberia_main_menu").collapse("toggle");
+   * Dropdown Menu Click Function - Desktop & Mobile
+   */
+  $(document).on("click", "#drilllcorp_main_menu .menu-item-has-children > a", function (e) {
+    if ($(this).next(".sub-menu").length > 0) {
+      e.preventDefault();
+      var $submenu = $(this).next(".sub-menu");
+      var $parent = $(this).parent();
 
-      // Close menu when a nav link is clicked
-      $('#homiberia_main_menu .nav-link').on('click', function () {
-        $('#homiberia_main_menu').collapse('hide');
-        $('.navbar-toggler').removeClass('active');
+      // Close other open submenus
+      $('#drilllcorp_main_menu .menu-item-has-children').not($parent).each(function () {
+        $(this).find('> .sub-menu').slideUp(300);
+        $(this).find('> a').removeClass('submenu-open');
       });
 
-      // Ensure the navbar collapses when clicking outside
-      $(document).on('click.homiberiaCollapse', function (e) {
-        if (!$(e.target).closest('#homiberia_main_menu').length &&
-          !$(e.target).closest('.navbar-toggler').length) {
-          $("#homiberia_main_menu").collapse('hide');
-          $('.navbar-toggler').removeClass('active');
-          $(document).off('click.homiberiaCollapse');
-        }
-      });
-    });
+      // Toggle current submenu
+      if ($submenu.is(':visible')) {
+        $submenu.slideUp(300);
+        $(this).removeClass('submenu-open');
+      } else {
+        $submenu.slideDown(300);
+        $(this).addClass('submenu-open');
+      }
+    }
+  });
+
+  // Close submenus when clicking elsewhere
+  $(document).on('click', function (e) {
+    if (!$(e.target).closest('#drilllcorp_main_menu .menu-item-has-children').length) {
+      $('#drilllcorp_main_menu .sub-menu').slideUp(300);
+      $('#drilllcorp_main_menu .menu-item a').removeClass('submenu-open');
+    }
+  });
 
     
 })(jQuery);

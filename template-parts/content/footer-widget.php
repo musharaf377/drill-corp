@@ -14,8 +14,11 @@ $footer_quick_links_menu_repeater = cs_get_option('footer_quick_links_menu_repea
 $footer_company_menu = cs_get_option('footer_company_menu_repeater');
 $footer_first_column_menu = cs_get_option('footer_first_column_menu');
 $footer_second_column_menu = cs_get_option('footer_second_column_menu');
-$footer_copyright_bottom_menu = cs_get_option('footer_copyright_bottom_menu');
 $footer_location = cs_get_option('footer_location');
+$footer_award_logo = cs_get_option('footer_award_repeater');
+$footer_bottom_menu = cs_get_option('footer_bottom_menu');
+
+
 ?>
 <div class="footer-section">
     <div class="custom-container container">
@@ -33,11 +36,31 @@ $footer_location = cs_get_option('footer_location');
                     }
                     ?>
                 </div>
+                <div class="footer-top-left-content">
+                    <h4><?php echo esc_html(cs_get_option('footer_content_sub_title')); ?></h4>
+                    <p><?php echo esc_html(cs_get_option('footer_content_sub_desc')); ?></p>
+
+                    <div class="footer-extra-meta-wrap">
+                        <div class="footer-extra-single-meta">
+                            <a href="<?php echo esc_url(cs_get_option('footer_content_download_link')['url']) ?>">
+                                <img src="<?php echo cs_get_option('footer_content_download_icon')['url']  ?>" alt="">
+                                <span><?php echo cs_get_option('footer_content_download_link')['text']; ?></span>
+                            </a>
+                        </div>
+                        <div class="footer-extra-single-meta">
+                            <a href="<?php echo esc_url(cs_get_option('footer_content_view_capabilities_link')['url']) ?>">
+                                <img src="<?php echo cs_get_option('footer_content_view_capabilities_icon')['url']  ?>" alt="">
+                                <span><?php echo cs_get_option('footer_content_view_capabilities_link')['text']; ?></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
             </div>
             <div class="footer-top-right">
                 <div class="footer-menu-wrap">
                     <div class="footer-single-menu-widget">
-                        <h3>Our Company</h3>
+                        <h4>Our Company</h4>
                         <ul class="footer-list">
                             <?php
 
@@ -51,7 +74,7 @@ $footer_location = cs_get_option('footer_location');
                         </ul>
                     </div>
                     <div class="footer-single-menu-widget">
-                        <h3>Services</h3>
+                        <h4>Services</h4>
                         <ul class="footer-list">
                             <?php
                             if (!empty($footer_second_column_menu)) :
@@ -65,38 +88,37 @@ $footer_location = cs_get_option('footer_location');
                     </div>
                 </div>
                 <div class="footer-contact-info">
-                    <h3>Contact Info</h3>
+                    <h4>Contact Info</h4>
                     <div class="footer-location-wrap">
-                        <div class="footer-single-location-wrap">
-                            
-                            <div class="footer-location-content">
-                                <?php if (!empty($footer_location)) {
-                                    foreach ($footer_location as $location) {
-                                        echo ' <img src="' . get_template_directory_uri() . '/assets/img/office-home-image.png" alt="">
-                                            <div class="footer-single-location">
-                                                        <h4>' . $location['footer_location_item_title'] . '</h4>
-                                                        <p>' . $location['footer_location_item_desc'] . '</p>
-                                                    </div>';
-                                    }
-                                }
-                                ?>
-                            </div>
+                        <div class="footer-location-content">
+                            <?php if (!empty($footer_location)) {
+                                foreach ($footer_location as $location) { ?>
+                                    <div class="footer-single-location-wrap">
+                                        <img src="<?php echo esc_url($location['footer_location_item_icon']['url']) ?>" alt="">
+                                        <div class="footer-single-location">
+                                            <h4><?php echo esc_html($location['footer_location_item_title']) ?></h4>
+                                            <p><?php echo esc_html($location['footer_location_item_desc']) ?></p>
+                                        </div>
+                                    </div>
+                            <?php }
+                            }
+                            ?>
                         </div>
                     </div>
                     <div class="footer-contact-info-wrap">
                         <div class="footer-single-contact-wrap">
-                            <img src="<?php echo get_template_directory_uri() . '/assets/img/office-home-image.png' ?>" alt="">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/img/mail.svg' ?>" alt="">
                             <div class="footer-contact-content">
-                                <a href="<?php echo esc_url('mailto:' . get_option('footer_contact_mail')) ?>">
-                                    <span>Email</span><?php echo esc_html(get_option('footer_contact_mail')) ?>
+                                <a href="<?php echo esc_url('mailto:' . cs_get_option('footer_contact_mail')) ?>">
+                                    <span>Email:</span><?php echo esc_html(cs_get_option('footer_contact_mail')) ?>
                                 </a>
                             </div>
                         </div>
                         <div class="footer-single-contact-wrap">
-                            <img src="<?php echo get_template_directory_uri() . '/assets/img/office-home-image.png' ?>" alt="">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/img/phone.svg' ?>" alt="">
                             <div class="footer-contact-content">
-                                <a href="<?php echo esc_url('tel:' . get_option('footer_contact_phone')) ?>">
-                                    <span>Phone</span><?php echo esc_html(get_option('footer_contact_phone')) ?>
+                                <a href="<?php echo esc_url('tel:' . cs_get_option('footer_contact_phone')) ?>">
+                                    <span>Phone:</span><?php echo esc_html(cs_get_option('footer_contact_phone')) ?>
                                 </a>
                             </div>
                         </div>
@@ -105,22 +127,8 @@ $footer_location = cs_get_option('footer_location');
             </div>
         </div>
 
-        <div class="footer-middle-area">
-            <ul class="footer-social-share for-mobile">
-                <?php
-                if (!empty($socialIcon)) :
-                    foreach ($socialIcon as $icon) :
-                        echo '<li class="single-info-item"><a href=" ' . $icon['footer_social_icon_item_url'] . ' ">
-                                                    <img src="' . $icon['footer_social_icon_item_icon']['url'] . '" alt="' . $icon['footer_social_icon_item_icon']['alt'] . '"/></a></li>';
-                    endforeach;
-                endif;
-                ?>
-            </ul>
-        </div>
-
-
-        <div class="footer-bottom-menu">
-            <div class="menu-about-menu-container">
+        <div class="footer-bottom">
+            <div class="footer-bottom-wrap">
                 <ul class="footer-social-share">
                     <?php
                     if (!empty($socialIcon)) :
@@ -132,35 +140,47 @@ $footer_location = cs_get_option('footer_location');
                     ?>
                 </ul>
 
-
                 <div class="footer-middle-right">
                     <div class="footer-award-logo">
-
+                        <?php
+                        if (!empty($footer_award_logo)) :
+                            foreach ($footer_award_logo as $award) :
+                                echo '<img src="' . $award['footer_award_image']['url'] . '" alt="' . $award['footer_award_image']['alt'] . '"/>';
+                            endforeach;
+                        endif;
+                        ?>
                     </div>
                     <div class="copyright-text">
                         <?php echo wp_kses($copyright_text, drilllcorp()->kses_allowed_html(array('a'))); ?>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
         <ul class="footer-bottom-menu-list">
             <?php
-            if (!empty($footer_copyright_bottom_menu)) :
-                foreach ($footer_copyright_bottom_menu as $menu) :
-                    echo '<li><a href=" ' . $menu['footer_copyright_bottom_menu_item_url'] . ' ">
-                                                ' . $menu['footer_copyright_bottom_menu_item_title'] . '</a></li>';
-                endforeach;
+            if (!empty($footer_bottom_menu)) :
+                foreach ($footer_bottom_menu as $menu) : ?>
+                    <li>
+                        <a href="<?php echo $menu['footer_bottom_menu_item_url']  ?>">
+                            <?php echo $menu['footer_bottom_menu_item_title']; ?>
+                        </a>
+                    </li>
+            <?php endforeach;
             endif;
             ?>
         </ul>
-        <div class="footer-bottom-logo">
-            <img src="<?php echo get_template_directory_uri() . '/assets/img/footer-bottom-logo.png' ?>" alt="">
+
+    </div>
+    <div class="footer-bottom-logo">
+        <img src="<?php echo get_template_directory_uri() . '/assets/img/footer-shape-one.png' ?>" class="footer-shape-one" alt="">
+        <img src="<?php echo get_template_directory_uri() . '/assets/img/footer-shape-two.png' ?>" class="footer-shape-two" alt="">
+        <div class="footer-bottom-main-logo-wrap">
+            <img src="<?php echo esc_url(cs_get_option('footer_bottom_logo')['url']) ?>" class="footer-bottom-main-logo" alt="">
         </div>
+        <img src="<?php echo get_template_directory_uri() . '/assets/img/footer-shape-three.png' ?>" class="footer-shape-three" alt="">
+
     </div>
 </div>
 
-</div>
 </div>

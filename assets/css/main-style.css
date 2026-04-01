@@ -7,7 +7,7 @@
 */
 
 :root {
-  --main-color-one: rgba(13, 22, 35, 1);
+  --main-color-one: rgba(25, 52, 65, 1);
   --secondary-color: rgba(240, 243, 245, 1);
   --heading-color: rgba(13, 22, 35, 1);
   --paragraph-color: rgba(13, 22, 35, 1);
@@ -18,28 +18,28 @@
 }
 
 @font-face {
-  font-family: "Darker Grotesque";
+  font-family: "Darker Grotesque", sans-serif;
   src: url("../fonts/DarkerGrotesque-Light.ttf");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Darker Grotesque";
+  font-family: "Darker Grotesque", sans-serif;
   src: url("../fonts/DarkerGrotesque-Medium.ttf");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Darker Grotesque";
+  font-family: "Darker Grotesque", sans-serif;
   src: url("../fonts/DarkerGrotesque-SemiBold.ttf");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Darker Grotesque";
+  font-family: "Darker Grotesque", sans-serif;
   src: url("../fonts/DarkerGrotesque-Bold.ttf");
   font-weight: 700;
   font-style: normal;
@@ -62,12 +62,12 @@
 body,
 p,
 a {
-  font-family: var(--body-font);
+  font-family: "Darker Grotesque", sans-serif;
   font-size: 18px;
   line-height: 1.5;
   color: var(--paragraph-color);
-  letter-spacing: 0px;
-  font-weight: 500;
+  letter-spacing: .5px;
+  font-weight: 400;
 }
 
 h1,
@@ -148,7 +148,7 @@ p {
     #3 Nav bar
 ----------------- */
 #masthead .navbar {
-  padding: 20px 0px;
+  /* padding: 20px 0px; */
   background-color: #FFFFFFE5;
 }
 
@@ -205,6 +205,42 @@ p {
   color: #fff;
 }
 
+.navbar-nav li ul.sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    padding: 8px 0 0;
+    min-width: 200px;
+    z-index: 999;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+.navbar-nav li.menu-item-has-children {
+    position: relative;
+    padding: 20px 0;
+}
+
+.navbar-nav li ul.sub-menu li {
+    display: block;
+    width: 100%;
+}
+
+.navbar-nav li ul.sub-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--paragraph-color);
+    transition: all 0.3s ease;
+}
+
+#masthead #menu-primary-menu ul.sub-menu li a:hover {
+    background: rgba(25, 52, 65, 1);
+    color: #fff;
+    padding-left: 25px;
+}
+
 
 /*======================
   Footer Area CSS
@@ -212,18 +248,83 @@ p {
 .footer-section {
   background: #193441;
   padding-top: 140px;
+  overflow: hidden;
 }
 
 .footer-top-area {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1.8fr;
   padding-bottom: 38px;
-  border-bottom: 1px solid rgba(223, 224, 226, 1);
+  border-bottom: 1px solid rgba(248, 251, 252, 0.2);
+  gap: 170px
+}
+
+.footer-top-left-content h4 {
+    color: rgba(226, 239, 244, 1);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.footer-top-left-content p {
+    font-size: 16px;
+    color: rgba(226, 239, 244, 1);
+    line-height: 1.4em;
+    margin-bottom: 18px;
+}
+
+.footer-extra-meta-wrap {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.footer-extra-single-meta a {
+    display: flex;
+    align-items: center;
+    color: rgba(226, 239, 244, 1);
+    gap: 8px;
+}
+
+.footer-top-left-content {
+    margin-top: 44px;
+}
+
+.footer-single-menu-widget h4, .footer-contact-info h4 {
+    color: rgba(211, 231, 238, 0.8);
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Darker Grotesque';
+    margin-bottom: 20px;
+}
+
+.footer-list {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.footer-list li a {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(248, 251, 252, 1);
+    font-family: 'Darker Grotesque';
+    transition: .3s ease-in-out all;
+}
+
+.footer-list li a:hover {
+  color: rgba(211, 231, 238, 1);
 }
 
 .footer-top-right {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.7fr 1fr;
+}
+
+.footer-location-wrap {
+    border-bottom: 1px solid rgba(248, 251, 252, 0.2);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 .footer-single-location-wrap {
@@ -232,29 +333,47 @@ p {
     gap: 10px;
 }
 
-.footer-social-share {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.footer-single-location h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    font-family: var(--heading-font);
+    margin: 0px;
 }
 
-.footer-social-share li a {
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(247, 247, 248, 1);
-  border-radius: 50%;
-  padding: 20px;
+.footer-single-location p {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(248, 251, 252, 1);
+    font-family: var(--heading-font);
+    margin: 0;
 }
 
-ul.footer-social-share.for-mobile {
-  display: none;
+.footer-location-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.copyright-text.for-mobile {
-  display: none;
+.footer-single-contact-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-contact-content a {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(248, 251, 252, 1);
+}
+
+.footer-contact-content a:hover {
+  color: rgba(211, 231, 238, 1);
+}
+
+.footer-contact-content a span {
+    font-weight: 600;
+    margin-right: 8px;
 }
 
 .footer-menu-wrapper {
@@ -263,50 +382,13 @@ ul.footer-social-share.for-mobile {
 
 .footer-menu-wrap {
   display: flex;
-  gap: 40px;
+  gap: 80px;
 }
 
 .widget_nav_menu {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
   margin-top: 70px;
-}
-
-.footer-location-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 40px;
-  column-gap: 30px;
-}
-
-.footer-single-location h4 {
-  font-size: 24px;
-  font-weight: 500;
-  color: rgba(80, 85, 94, 1);
-  margin-bottom: 8px;
-}
-
-.footer-single-location p {
-  margin-bottom: 10px;
-}
-
-.footer-bottom-menu {
-  padding: 30px 0 40px;
-  border: 1px solid rgba(223, 224, 226, 1);
-  border-left: none;
-  border-right: none;
-}
-
-.menu-about-menu-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-ul.footer-bottom-menu-list {
-  display: flex;
-  align-items: center;
-  gap: 20px;
 }
 
 .footer-menu-wrap .footer-list {
@@ -320,15 +402,122 @@ ul.footer-bottom-menu-list {
   font-size: 14px;
 }
 
-.company-deck {
-  margin-top: 73px;
-}
-
-.company-deck-link {
+.footer-social-share {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 18px;
-  line-height: 1em;
-  font-weight: 400;
+}
+
+.footer-social-share li a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 26, 33, 1);
+  border-radius: 50%;
+  padding: 20px;
+  transition: .3s ease-in-out all;
+}
+
+.footer-social-share li a img {
+  filter: invert(0);
+  transition: .3s ease-in-out all;
+}
+
+.footer-social-share li a:hover {
+  background: #fff;
+}
+
+.footer-social-share li a:hover img {
+  filter: invert(1);
+}
+
+.footer-bottom-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 24px 0; 
+}
+
+.footer-middle-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footer-award-logo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.copyright-text {
+    max-width: 160px;
+    font-size: 16px;
+    color: rgba(226, 239, 244, 1);
+    font-weight: 500;
+    line-height: 1.4em;
+}
+
+ul.footer-bottom-menu-list {
+    padding-top: 16px;
+    border-top: 1px solid rgba(248, 251, 252, 0.2);
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    gap: 18px;
+}
+
+ul.footer-bottom-menu-list li a {
+    color: rgba(248, 251, 252, 1);
+    font-weight: 500;
+    font-size: 18px;
+    transition: .3s ease-in-out all;
+}
+
+ul.footer-bottom-menu-list li a:hover {
+  color: rgba(211, 231, 238, 1);
+}
+
+.footer-bottom-logo img {
+    width: 100%;
+}
+
+.footer-bottom-logo {
+    position: relative;
+    overflow: hidden;
+}
+
+img.footer-shape-one {
+    position: relative;
+    z-index: 0;
+}
+
+img.footer-shape-two {
+    position: relative;
+    z-index: 3;
+}
+
+img.footer-shape-three {
+    position: relative;
+    z-index: 3;
+    max-height: 64px;
+}
+
+.footer-bottom-main-logo-wrap {
+    padding-top: 110px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transform: translateY(48px);
+}
+
+.footer-bottom-main-logo {
+    width: 100%;
+    max-width: 1224px;
 }
