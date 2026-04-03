@@ -8,6 +8,7 @@
  * @package drilllcorp
  */
 
+
 get_header();
 $get_404_options_value = DrilllCorp_Group_Fields_Value::get_404_options_value();
 $error_bg = cs_get_option('error_bg');
