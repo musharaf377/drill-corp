@@ -72,6 +72,7 @@ if (class_exists('CSF')) {
         'icon' => 'fa fa-file-o',
         'fields' => DrilllCorp_Group_Fields::Page_Container_Options('container_options')
     ));
+    
     //	Service Meta Box
     CSF::createMetabox($prefix . '_team_options', array(
         'title' => esc_html__('Team Options', 'drilllcorp'),
@@ -132,4 +133,5 @@ if (class_exists('CSF')) {
             ),
         )
     ));
+    
 }//endif
