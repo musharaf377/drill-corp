@@ -26,6 +26,10 @@ function drilllcorp_get_svg_icon($icon)
                         </svg>
                         ',
 
+        'down_angle' => '<svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.617187 0.619195L7.61724 7.61914L14.6172 0.619139" stroke="#E2EFF4" stroke-width="1.75" stroke-miterlimit="16"/>
+                        </svg>',
+
 
     );
 
