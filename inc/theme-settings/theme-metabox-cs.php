@@ -92,6 +92,29 @@ if (class_exists('CSF')) {
         )
     ));
 
+     //	Service List repeater
+    CSF::createMetabox($prefix . '_services_options', array(
+        'title' => esc_html__('Services Options', 'drillcorp'),
+        'post_type' => 'services',
+    ));
+    CSF::createSection($prefix . '_services_options', array(
+        'fields' => array(
+            array(
+                'id' => 'services_feature',
+                'type' => 'repeater',
+                'title' => esc_html__('Check your services feature', 'drillcorp'),
+                'fields' => array(
+                    array(
+                        'id' => 'services_feature_title',
+                        'type' => 'text',
+                        'title' => esc_html__('Enter Services Feature Title', 'drillcorp'),
+                    ),
+                )
+            ),
+            
+        )
+    ));
+    
 
     
 }//endif
