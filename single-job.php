@@ -5,7 +5,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 
 ?>
@@ -23,16 +23,16 @@
     <?php 
     wp_body_open(); 
 
-    do_action('drilllcorp_after_body');
+    do_action('drillcorp_after_body');
     
-    $page_container_meta = DrilllCorp_Group_Fields_Value::page_container('drilllcorp', 'header_options');
+    $page_container_meta = Drillcorp_Group_Fields_Value::page_container('drillcorp', 'header_options');
     ?>
 
     <div id="page" class="site">
-        <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'drilllcorp'); ?></a>
+        <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'drillcorp'); ?></a>
         <header id="masthead" class="site-header">
             <?php
-            $job_single_meta_data = get_post_meta(get_the_ID(), 'drilllcorp_job_options', true);
+            $job_single_meta_data = get_post_meta(get_the_ID(), 'drillcorp_job_options', true);
             $is_arabic = $job_single_meta_data['set_arabic'];
             $job_type = $job_single_meta_data['job_type'];
             $job_location = $job_single_meta_data['job_location'];
@@ -45,10 +45,10 @@
                 get_template_part('template-parts/header/header', '');
             } ?>
         </header><!-- #masthead -->
-        <?php do_action('drilllcorp_before_page_content') ?>
+        <?php do_action('drillcorp_before_page_content') ?>
         <div id="content" class="site-content">
             <?php
-            $page_layout_meta = DrilllCorp_Group_Fields_Value::page_layout_options('job_single');
+            $page_layout_meta = Drillcorp_Group_Fields_Value::page_layout_options('job_single');
             $full_width_class = $page_layout_meta['content_column_class'] === 'col-lg-12' ? ' full-width-content ' : '';
             ?>
             <div id="primary"

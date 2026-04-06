@@ -1,6 +1,6 @@
 <?php
 
-trait DrilllCorpSingleTone
+trait DrillcorpSingleTone
 {
     private static $instance;
 

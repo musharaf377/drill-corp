@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 
 ?>
@@ -30,15 +30,15 @@
 
     wp_body_open();
 
-    do_action('drilllcorp_after_body');
+    do_action('drillcorp_after_body');
 
-    $page_container_meta = DrilllCorp_Group_Fields_Value::page_container('drilllcorp', 'header_options');
+    $page_container_meta = Drillcorp_Group_Fields_Value::page_container('drillcorp', 'header_options');
     ?>
 
     <div id="page" class="site">
-        <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'drilllcorp'); ?></a>
+        <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'drillcorp'); ?></a>
         <header id="masthead" class="site-header">
             <?php get_template_part('template-parts/header/header', $page_container_meta['navbar_type']); ?>
         </header><!-- #masthead -->
-        <?php do_action('drilllcorp_before_page_content') ?>
+        <?php do_action('drillcorp_before_page_content') ?>
         <div id="content" class="site-content">

@@ -1,7 +1,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: DrilllCorp\n"
+"Project-Id-Version: Drillcorp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-13 04:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.6.1; wp-5.9.3\n"
-"X-Domain: drilllcorp"
+"X-Domain: drillcorp"
 
 #: inc/theme-helper-functions.php:205 inc/theme-helper-functions.php:230
 msgid " of "
@@ -310,12 +310,12 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: template-parts/footer/footer-style-02.php:8
-msgid "Copyright 2022 DrilllCorp. Designed By"
+msgid "Copyright 2022 Drillcorp. Designed By"
 msgstr ""
 
 #: template-parts/footer/footer.php:8
 #: template-parts/footer/footer-style-01.php:8
-msgid "Copyright 2022 DrilllCorp. Designed By "
+msgid "Copyright 2022 Drillcorp. Designed By "
 msgstr ""
 
 #: inc/theme-settings/theme-customizer-cs.php:394
@@ -731,7 +731,7 @@ msgid "https://themeforest.net/user/themeim"
 msgstr ""
 
 #. URI of the theme
-msgid "https://themeim.com/wp/drilllcorp/"
+msgid "https://themeim.com/wp/drillcorp/"
 msgstr ""
 
 #: inc/theme-settings/theme-metabox-cs.php:84
@@ -1357,20 +1357,20 @@ msgid "Subject"
 msgstr ""
 
 #: inc/theme-hook-customize.php:100
-msgid "DRILLLCORP"
+msgid "DRILLCORP"
 msgstr ""
 
 #. Name of the theme
-msgid "DrilllCorp"
+msgid "Drillcorp"
 msgstr ""
 
 #: inc/theme-settings/theme-customizer-cs.php:21
-msgid "DrilllCorp Options"
+msgid "Drillcorp Options"
 msgstr ""
 
 #. Description of the theme
 msgid ""
-"DrilllCorp – Its unique features and functionalities make it the ideal solution "
+"Drillcorp – Its unique features and functionalities make it the ideal solution "
 "for websites dedicated to private flights, aircrafts, charters or any other "
 "businesses related to private airlines. The theme is well suited for all "
 "types of flight services: private jet, regional airliner, long range jet, "

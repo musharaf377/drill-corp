@@ -2,7 +2,7 @@
 
 /**
  * Theme Init Functions
- * @package drilllcorp
+ * @package drillcorp
  * @since 1.0.0
  */
 
@@ -10,9 +10,9 @@ if (!defined("ABSPATH")) {
     exit(); //exit if access directly
 }
 
-if (!class_exists('DrilllCorp_Init')) {
+if (!class_exists('Drillcorp_Init')) {
 
-    class DrilllCorp_Init
+    class Drillcorp_Init
     {
         /**
          * $instance
@@ -65,7 +65,7 @@ if (!class_exists('DrilllCorp_Init')) {
              * Make theme available for translation.
              * Translations can be filed in the /languages/ directory.
              */
-            load_theme_textdomain('drilllcorp', get_template_directory() . '/languages');
+            load_theme_textdomain('drillcorp', get_template_directory() . '/languages');
 
             // Add default posts and comments RSS feed links to head.
             add_theme_support('automatic-feed-links');
@@ -84,8 +84,8 @@ if (!class_exists('DrilllCorp_Init')) {
 
             // This theme uses wp_nav_menu() in one location.
             register_nav_menus(array(
-                'main-menu' => esc_html__('Primary Menu', 'drilllcorp'),
-                'main-menu-02' => esc_html__('Primary Menu Two', 'drilllcorp'),
+                'main-menu' => esc_html__('Primary Menu', 'drillcorp'),
+                'main-menu-02' => esc_html__('Primary Menu Two', 'drillcorp'),
             ));
 
             /*
@@ -131,12 +131,12 @@ if (!class_exists('DrilllCorp_Init')) {
             add_theme_support('post-formats', array('image', 'video', 'gallery', 'link', 'quote'));
 
             // This variable is intended to be overruled from themes.
-            $GLOBALS['content_width'] = apply_filters('drilllcorp_content_width', 740);
+            $GLOBALS['content_width'] = apply_filters('drillcorp_content_width', 740);
 
             //add image sizes
-            add_image_size('drilllcorp_classic', 750, 400, true);
-            add_image_size('drilllcorp_grid', 370, 270, true);
-            add_image_size('drilllcorp_medium', 550, 380, true);
+            add_image_size('drillcorp_classic', 750, 400, true);
+            add_image_size('drillcorp_grid', 370, 270, true);
+            add_image_size('drillcorp_medium', 550, 380, true);
 
             self::load_theme_dependency_files();
         }
@@ -148,7 +148,7 @@ if (!class_exists('DrilllCorp_Init')) {
          */
         public function theme_widgets_init()
         {
-            $sidebars = require_once DRILLLCORP_THEME_ROOT . '/config/sidebars.php';
+            $sidebars = require_once DRILLCORP_THEME_ROOT . '/config/sidebars.php';
 
             if (!empty($sidebars)) {
                 foreach ($sidebars as $key => $sidebar) {
@@ -237,17 +237,17 @@ if (!class_exists('DrilllCorp_Init')) {
          */
         public function load_theme_css()
         {
-            $theme_version = DRILLLCORP_DEV ? time() : drilllcorp()->get_theme_info('version');
+            $theme_version = DRILLCORP_DEV ? time() : drillcorp()->get_theme_info('version');
             $css_ext = '.css';
             //load google fonts
             $enqueue_google_fonts = self::load_google_fonts();
             if (!empty($enqueue_google_fonts)) {
-                wp_enqueue_style('drilllcorp-google-fonts', esc_url(add_query_arg('family', urlencode(implode('|', $enqueue_google_fonts)), '//fonts.googleapis.com/css')), array(), null);
+                wp_enqueue_style('drillcorp-google-fonts', esc_url(add_query_arg('family', urlencode(implode('|', $enqueue_google_fonts)), '//fonts.googleapis.com/css')), array(), null);
             }
 
-            $css_files = require_once DRILLLCORP_THEME_ROOT . '/config/files-css.php';
+            $css_files = require_once DRILLCORP_THEME_ROOT . '/config/files-css.php';
 
-            $css_files = apply_filters('drilllcorp_theme_enqueue_style', $css_files);
+            $css_files = apply_filters('drillcorp_theme_enqueue_style', $css_files);
 
             if (is_array($css_files) && !empty($css_files)) {
                 foreach ($css_files as $css) {
@@ -259,14 +259,14 @@ if (!class_exists('DrilllCorp_Init')) {
                 }
             }
 
-            wp_enqueue_style('drilllcorp-style', get_stylesheet_uri());
+            wp_enqueue_style('drillcorp-style', get_stylesheet_uri());
 
-            if (drilllcorp()->is_drilllcorp_core_active()) {
-                if (file_exists(DRILLLCORP_DYNAMIC_STYLESHEETS . '/theme-inline-css-style.php')) {
-                    require_once DRILLLCORP_DYNAMIC_STYLESHEETS . '/theme-inline-css-style.php';
-                    require_once DRILLLCORP_DYNAMIC_STYLESHEETS . '/theme-option-css-style.php';
-                    wp_add_inline_style('drilllcorp-style', drilllcorp()->minify_css_lines($GLOBALS['drilllcorp_inline_css']));
-                    wp_add_inline_style('drilllcorp-style', drilllcorp()->minify_css_lines($GLOBALS['theme_customize_css']));
+            if (drillcorp()->is_drillcorp_core_active()) {
+                if (file_exists(DRILLCORP_DYNAMIC_STYLESHEETS . '/theme-inline-css-style.php')) {
+                    require_once DRILLCORP_DYNAMIC_STYLESHEETS . '/theme-inline-css-style.php';
+                    require_once DRILLCORP_DYNAMIC_STYLESHEETS . '/theme-option-css-style.php';
+                    wp_add_inline_style('drillcorp-style', drillcorp()->minify_css_lines($GLOBALS['drillcorp_inline_css']));
+                    wp_add_inline_style('drillcorp-style', drillcorp()->minify_css_lines($GLOBALS['theme_customize_css']));
                 }
             }
         }
@@ -277,12 +277,12 @@ if (!class_exists('DrilllCorp_Init')) {
          */
         public function load_theme_js()
         {
-            $theme_version = drilllcorp()->get_theme_info('version');
-            $js_ext = DRILLLCORP_DEV ? '.js' : '.min.js';
+            $theme_version = drillcorp()->get_theme_info('version');
+            $js_ext = DRILLCORP_DEV ? '.js' : '.min.js';
 
-            $js_files = require_once DRILLLCORP_THEME_ROOT . '/config/files-js.php';
+            $js_files = require_once DRILLCORP_THEME_ROOT . '/config/files-js.php';
 
-            $js_files = apply_filters('drilllcorp_theme_enqueue_script', $js_files);
+            $js_files = apply_filters('drillcorp_theme_enqueue_script', $js_files);
 
             if (is_array($js_files) && !empty($js_files)) {
                 foreach ($js_files as $js) {
@@ -308,7 +308,7 @@ if (!class_exists('DrilllCorp_Init')) {
          */
         public function load_theme_dependency_files()
         {
-            $includes_files = require_once DRILLLCORP_THEME_ROOT . '/config/files-php.php';
+            $includes_files = require_once DRILLCORP_THEME_ROOT . '/config/files-php.php';
 
             if (is_array($includes_files) && !empty($includes_files)) {
                 foreach ($includes_files as $file) {
@@ -334,21 +334,21 @@ if (!class_exists('DrilllCorp_Init')) {
          */
         public function load_gutenberg_script()
         {
-            $theme_version = DRILLLCORP_DEV ? time() : drilllcorp()->get_theme_info('version');
+            $theme_version = DRILLCORP_DEV ? time() : drillcorp()->get_theme_info('version');
             $css_ext = '.css';
 
             //load google fonts
             $enqueue_google_fonts = self::load_google_fonts();
             if (!empty($enqueue_google_fonts)) {
-                wp_enqueue_style('drilllcorp-google-fonts', esc_url(add_query_arg('family', urlencode(implode('|', $enqueue_google_fonts)), '//fonts.googleapis.com/css')), array(), null);
+                wp_enqueue_style('drillcorp-google-fonts', esc_url(add_query_arg('family', urlencode(implode('|', $enqueue_google_fonts)), '//fonts.googleapis.com/css')), array(), null);
             }
 
-            wp_enqueue_style('flaticon', DRILLLCORP_CSS . '/flaticon.css', [], $theme_version, 'all');
-            wp_enqueue_style('flynext-gutenbarg', DRILLLCORP_CSS . '/gutenberg.css', [], $theme_version, 'all');
+            wp_enqueue_style('flaticon', DRILLCORP_CSS . '/flaticon.css', [], $theme_version, 'all');
+            wp_enqueue_style('flynext-gutenbarg', DRILLCORP_CSS . '/gutenberg.css', [], $theme_version, 'all');
         }
     } //end class
 
-    if (class_exists('DrilllCorp_Init')) {
-        DrilllCorp_Init::getInstance();
+    if (class_exists('Drillcorp_Init')) {
+        Drillcorp_Init::getInstance();
     }
 }

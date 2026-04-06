@@ -2,7 +2,7 @@
 
 /**
  * Theme Default Header
- * @package drilllcorp
+ * @package drillcorp
  * @since 1.0.0
  */
 ?>
@@ -22,8 +22,8 @@
                 }
                 ?>
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#drilllcorp_main_menu"
-                aria-expanded="false" aria-label="<?php  //esc_attr__('Toggle navigation', 'drilllcorp') ?>">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#drillcorp_main_menu"
+                aria-expanded="false" aria-label="<?php  //esc_attr__('Toggle navigation', 'drillcorp') ?>">
                 <span class="navbar-toggler-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 6H20M4 12H20M4 18H20" stroke="#0E0E0F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -32,7 +32,7 @@
             </button>
         </div>
 
-        <div id="drilllcorp_main_menu" class="collapse navbar-collapse">
+        <div id="drillcorp_main_menu" class="collapse navbar-collapse">
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'main-menu',

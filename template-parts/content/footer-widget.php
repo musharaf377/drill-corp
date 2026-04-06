@@ -2,10 +2,10 @@
 
 /**
  * Theme Footer Widget Template
- * @package drilllcorp
+ * @package drillcorp
  * @since 1.0.0
  */
-$copyright_text = !empty(cs_get_option('copyright_text')) ? cs_get_option('copyright_text') : esc_html__('© 2025 drilllcorp | All right reserved ', 'drilllcorp') . '<a href="' . esc_url('https://drilllcorp.agency') . '">' . esc_html__('DrilllCorp', 'drilllcorp') . '</a>';
+$copyright_text = !empty(cs_get_option('copyright_text')) ? cs_get_option('copyright_text') : esc_html__('© 2025 drillcorp | All right reserved ', 'drillcorp') . '<a href="' . esc_url('https://drillcorp.agency') . '">' . esc_html__('Drillcorp', 'drillcorp') . '</a>';
 
 $copyright_text = str_replace('{copy}', '&copy;', $copyright_text);
 $copyright_text = str_replace('{year}', date('Y'), $copyright_text);
@@ -151,7 +151,7 @@ $footer_bottom_menu = cs_get_option('footer_bottom_menu');
                         ?>
                     </div>
                     <div class="copyright-text">
-                        <?php echo wp_kses($copyright_text, drilllcorp()->kses_allowed_html(array('a'))); ?>
+                        <?php echo wp_kses($copyright_text, drillcorp()->kses_allowed_html(array('a'))); ?>
                     </div>
                 </div>
             </div>

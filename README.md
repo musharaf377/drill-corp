@@ -1,2 +1,2 @@
-# drilllcorp
-DrilllCorp WordPress Theme
+# drillcorp
+Drillcorp WordPress Theme

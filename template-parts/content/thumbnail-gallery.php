@@ -2,25 +2,25 @@
 
 /**
  * Post Thumbnail Gallery
- * @package drilllcorp
+ * @package drillcorp
  * @since 1.0.0
  */
 
-$drilllcorp = drilllcorp();
-$post_meta = get_post_meta(get_the_ID(), 'drilllcorp_post_gallery_options', true);
+$drillcorp = drillcorp();
+$post_meta = get_post_meta(get_the_ID(), 'drillcorp_post_gallery_options', true);
 $post_meta_gallery = isset($post_meta['gallery_images']) && !empty($post_meta['gallery_images']) ? $post_meta['gallery_images'] : '';
 $gallery_image = explode(',', $post_meta_gallery);
-$blog_single_options = DrilllCorp_Group_Fields_Value::post_meta('blog_single_post');
+$blog_single_options = Drillcorp_Group_Fields_Value::post_meta('blog_single_post');
 ?>
 <?php
 if (isset($post_meta['gallery_images']) && !empty($post_meta['gallery_images'])):
 ?>
-    <div id="drilllcorp_post_gallery" class="carousel slide thumbnail" data-ride="carousel">
+    <div id="drillcorp_post_gallery" class="carousel slide thumbnail" data-ride="carousel">
         <ol class="carousel-indicators">
             <?php
             for ($i = 0; $i < count($gallery_image); $i++) {
                 $class = 0 == $i ? 'active' : '';
-                printf('<li data-target="#drilllcorp_post_gallery" data-slide-to="%2$s" class="%1$s"></li>', esc_attr($i), esc_attr($class));
+                printf('<li data-target="#drillcorp_post_gallery" data-slide-to="%2$s" class="%1$s"></li>', esc_attr($i), esc_attr($class));
             }
             ?>
         </ol>
@@ -28,7 +28,7 @@ if (isset($post_meta['gallery_images']) && !empty($post_meta['gallery_images']))
             <?php
             for ($i = 0; $i < count($gallery_image); $i++):
                 $class = 0 == $i ? 'active' : '';
-                $img_src = wp_get_attachment_image_src($gallery_image[$i], 'drilllcorp_classic');
+                $img_src = wp_get_attachment_image_src($gallery_image[$i], 'drillcorp_classic');
                 $img_alt = get_post_meta($gallery_image[$i], 'wp_attachment_image_alt', true);
             ?>
                 <div class="carousel-item <?php echo esc_attr($class); ?>">
@@ -36,10 +36,10 @@ if (isset($post_meta['gallery_images']) && !empty($post_meta['gallery_images']))
                 </div>
             <?php endfor; ?>
         </div>
-        <a class="carousel-control-prev" href="#drilllcorp_post_gallery" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#drillcorp_post_gallery" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </a>
-        <a class="carousel-control-next" href="#drilllcorp_post_gallery" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#drillcorp_post_gallery" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </a>
     </div>
@@ -48,7 +48,7 @@ else:
     if (has_post_thumbnail()):
     ?>
         <div class="thumbnail">
-            <?php $drilllcorp->post_thumbnail(); ?>
+            <?php $drillcorp->post_thumbnail(); ?>
             <?php if (has_post_thumbnail()): ?>
                 <div class="news-date">
                     <h5 class="title"><?php echo esc_html(get_the_date('d')) ?></h5>

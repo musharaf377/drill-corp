@@ -2,14 +2,14 @@
 
 /**
  * Theme Breadcrumb 
- * @package drilllcorp
+ * @package drillcorp
  * @since 1.0.0
  */
 
-class DrilllCorp_Breadcrumb
+class Drillcorp_Breadcrumb
 {
 	/**
-	 * Array of bread DrilllCorp_Breadcrumb
+	 * Array of bread Drillcorp_Breadcrumb
 	 *
 	 * @var array
 	 */
@@ -49,8 +49,8 @@ class DrilllCorp_Breadcrumb
 		} else {
 			$this->defaults['blog_url'] = esc_url(home_url());
 		}
-		$this->defaults['home'] = esc_html__('Home', 'drilllcorp');
-		$this->defaults['blog'] = esc_html__('Blog', 'drilllcorp');
+		$this->defaults['home'] = esc_html__('Home', 'drillcorp');
+		$this->defaults['blog'] = esc_html__('Blog', 'drillcorp');
 
 		// Merge defaults with user passed options.
 		$this->options = array_replace_recursive($this->defaults, $options);
@@ -86,7 +86,7 @@ class DrilllCorp_Breadcrumb
 
 				// Otherwise make a span
 			} else {
-				$html .= sprintf('<span>%s</span>', wp_kses($crumb['title'], drilllcorp()->kses_allowed_html('all')));
+				$html .= sprintf('<span>%s</span>', wp_kses($crumb['title'], drillcorp()->kses_allowed_html('all')));
 			}
 
 			// Add seperators
@@ -105,7 +105,7 @@ class DrilllCorp_Breadcrumb
 		// close the element
 		$html .= sprintf('</%s>', $el);
 
-		echo wp_kses($html, drilllcorp()->kses_allowed_html('all'));
+		echo wp_kses($html, drillcorp()->kses_allowed_html('all'));
 	}
 
 	/**
@@ -116,7 +116,7 @@ class DrilllCorp_Breadcrumb
 	public function getBreadcrumbs()
 	{
 		$breadcrumbs = $this->breadcrumbs;
-		$breadcrumbs = apply_filters('drilllcorp_get_breadcrumbs', $breadcrumbs);
+		$breadcrumbs = apply_filters('drillcorp_get_breadcrumbs', $breadcrumbs);
 
 		return $breadcrumbs;
 	}
@@ -138,7 +138,7 @@ class DrilllCorp_Breadcrumb
 	/**
 	 * Generate the breadcrumbs
 	 *
-	 * @package drilllcorp
+	 * @package drillcorp
 	 */
 	public function doBreadcrumbs()
 	{
@@ -244,22 +244,22 @@ class DrilllCorp_Breadcrumb
 /**
  * Template Functions.
  */
-if (! function_exists('drilllcorp_breadcrumb')) {
+if (! function_exists('drillcorp_breadcrumb')) {
 	/**
 	 * Generate and display the breadcrumbs.
 	 *
 	 * @param array $options
 	 *
-	 * @package drilllcorp
+	 * @package drillcorp
 	 */
-	function drilllcorp_breadcrumb($options = [])
+	function drillcorp_breadcrumb($options = [])
 	{
-		$Crumbs = new DrilllCorp_Breadcrumb($options);
+		$Crumbs = new Drillcorp_Breadcrumb($options);
 		$Crumbs->theBreadcrumbs();
 	}
 }
 
-if (! function_exists('drilllcorp_get_breadcrumbs')) {
+if (! function_exists('drillcorp_get_breadcrumbs')) {
 	/**
 	 * Generate and return the breadcrumbs.
 	 *
@@ -267,9 +267,9 @@ if (! function_exists('drilllcorp_get_breadcrumbs')) {
 	 *
 	 * @return array
 	 */
-	function drilllcorp_get_breadcrumbs($options = [])
+	function drillcorp_get_breadcrumbs($options = [])
 	{
-		$Crumbs = new DrilllCorp_Breadcrumb($options);
+		$Crumbs = new Drillcorp_Breadcrumb($options);
 
 		return $Crumbs->getBreadcrumbs();
 	}
@@ -278,7 +278,7 @@ if (! function_exists('drilllcorp_get_breadcrumbs')) {
 /**
  * Utility functions
  */
-if (! function_exists('drilllcorp_breadcrumb_array_insert')) {
+if (! function_exists('drillcorp_breadcrumb_array_insert')) {
 	/**
 	 * Insert element to a specific index of the array.
 	 *
@@ -288,7 +288,7 @@ if (! function_exists('drilllcorp_breadcrumb_array_insert')) {
 	 *
 	 * @return array
 	 */
-	function drilllcorp_breadcrumb_array_insert(array $array, $element, int $position)
+	function drillcorp_breadcrumb_array_insert(array $array, $element, int $position)
 	{
 		// if the array is empty just add the element to it
 		if (empty($array)) {
