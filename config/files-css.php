@@ -3,7 +3,7 @@
 $css_files = array(
     array(
         'handle' => 'bootstrap',
-        'src' => DRILLLCORP_CSS . '/bootstrap.min.css',
+        'src' => DRILLCORP_CSS . '/bootstrap.min.css',
         'deps' => array(),
     ),
     array(
@@ -12,13 +12,13 @@ $css_files = array(
         'deps' => array('bootstrap'),
     ),
     array(
-        'handle' => 'drilllcorp-main-style',
-        'src' => DRILLLCORP_CSS . '/main-style' . $css_ext,
+        'handle' => 'drillcorp-main-style',
+        'src' => DRILLCORP_CSS . '/main-style' . $css_ext,
         'deps' => array(),
     ),
     array(
-        'handle' => 'drilllcorp-responsive',
-        'src' => DRILLLCORP_CSS . '/responsive' . $css_ext,
+        'handle' => 'drillcorp-responsive',
+        'src' => DRILLCORP_CSS . '/responsive' . $css_ext,
         'deps' => array(),
     ),
 );

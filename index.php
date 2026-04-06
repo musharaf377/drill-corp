@@ -10,11 +10,11 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 
 get_header();
-$page_layout_options = DrilllCorp_Group_Fields_Value::page_layout_options('blog');
+$page_layout_options = Drillcorp_Group_Fields_Value::page_layout_options('blog');
 
 ?>
 
@@ -39,7 +39,7 @@ $page_layout_options = DrilllCorp_Group_Fields_Value::page_layout_options('blog'
 						endwhile;
 					?>
 						<div class="blog-pagination">
-							<?php drilllcorp()->post_pagination(); ?>
+							<?php drillcorp()->post_pagination(); ?>
 						</div>
 					<?php else :
 

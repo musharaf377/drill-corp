@@ -2,17 +2,17 @@
 
 /**
  * Theme Post excerpt Template
- * @package drilllcorp
+ * @package drillcorp
  * @since 1.0.0
  */
 
-$drilllcorp = drilllcorp();
-$post_meta = DrilllCorp_Group_Fields_Value::post_meta('blog_post');
+$drillcorp = drillcorp();
+$post_meta = Drillcorp_Group_Fields_Value::post_meta('blog_post');
 $excerpt_length = !empty($post_meta['excerpt_length']) ? $post_meta['excerpt_length'] : 55;
-$readmore_text = !empty($post_meta['readmore_btn_text']) ? $post_meta['readmore_btn_text'] : esc_html__('Read More', 'drilllcorp');
+$readmore_text = !empty($post_meta['readmore_btn_text']) ? $post_meta['readmore_btn_text'] : esc_html__('Read More', 'drillcorp');
 
 
-DrilllCorp_Excerpt($excerpt_length);
+Drillcorp_Excerpt($excerpt_length);
 ?>
 <div class="blog-bottom">
 	<?php

@@ -15,13 +15,13 @@
  * 
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 
 
 
 get_header();
-$page_layout_options = DrilllCorp_Group_Fields_Value::page_layout_options('archive');
+$page_layout_options = Drillcorp_Group_Fields_Value::page_layout_options('archive');
 ?>
 
 <div id="primary" class="content-area archive-page-content-area padding-120">
@@ -46,7 +46,7 @@ $page_layout_options = DrilllCorp_Group_Fields_Value::page_layout_options('archi
                         endwhile;
                         ?>
                         <div class="blog-pagination">
-                            <?php drilllcorp()->post_pagination(); ?>
+                            <?php drillcorp()->post_pagination(); ?>
                         </div>
 
                     <?php

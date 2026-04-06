@@ -5,11 +5,11 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 
-$drilllcorp = drilllcorp();
-$post_meta = DrilllCorp_Group_Fields_Value::post_meta('blog_post');
+$drillcorp = drillcorp();
+$post_meta = Drillcorp_Group_Fields_Value::post_meta('blog_post');
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('blog-standard-item-01'); ?>>
     <?php

@@ -2,7 +2,7 @@
 
 /**
  * Theme Excerpt
- * @package drilllcorp
+ * @package drillcorp
  * @since 1.0.0
  */
 
@@ -10,8 +10,8 @@ if (!defined('ABSPATH')) {
     exit(); //exit if access it directly
 }
 
-if (!class_exists('DrilllCorp_Excerpt')):
-    class DrilllCorp_Excerpt
+if (!class_exists('Drillcorp_Excerpt')):
+    class Drillcorp_Excerpt
     {
 
         public static $length = 55;
@@ -35,22 +35,22 @@ if (!class_exists('DrilllCorp_Excerpt')):
          */
         public static function length($new_length = 55, $more = true)
         {
-            DrilllCorp_Excerpt::$length = $new_length;
-            DrilllCorp_Excerpt::$more = $more;
+            Drillcorp_Excerpt::$length = $new_length;
+            Drillcorp_Excerpt::$more = $more;
 
-            add_filter('excerpt_more', 'DrilllCorp_Excerpt::auto_excerpt_more');
+            add_filter('excerpt_more', 'Drillcorp_Excerpt::auto_excerpt_more');
 
-            add_filter('excerpt_length', 'DrilllCorp_Excerpt::new_length');
+            add_filter('excerpt_length', 'Drillcorp_Excerpt::new_length');
 
-            DrilllCorp_Excerpt::output();
+            Drillcorp_Excerpt::output();
         }
 
         public static function new_length()
         {
-            if (isset(DrilllCorp_Excerpt::$types[DrilllCorp_Excerpt::$length]))
-                return DrilllCorp_Excerpt::$types[DrilllCorp_Excerpt::$length];
+            if (isset(Drillcorp_Excerpt::$types[Drillcorp_Excerpt::$length]))
+                return Drillcorp_Excerpt::$types[Drillcorp_Excerpt::$length];
             else
-                return DrilllCorp_Excerpt::$length;
+                return Drillcorp_Excerpt::$length;
         }
 
         public static function output()
@@ -61,12 +61,12 @@ if (!class_exists('DrilllCorp_Excerpt')):
         public static function continue_reading_link()
         {
 
-            return '<span class="readmore"><a href="' . esc_url(get_permalink()) . '">' . esc_html__('Read More', 'drilllcorp') . '</a></span>';
+            return '<span class="readmore"><a href="' . esc_url(get_permalink()) . '">' . esc_html__('Read More', 'drillcorp') . '</a></span>';
         }
 
         public static function auto_excerpt_more()
         {
-            if (DrilllCorp_Excerpt::$more) :
+            if (Drillcorp_Excerpt::$more) :
                 return ' ';
             else :
                 return ' ';
@@ -75,10 +75,10 @@ if (!class_exists('DrilllCorp_Excerpt')):
     } //end class
 endif;
 
-if (!function_exists('DrilllCorp_Excerpt')) {
+if (!function_exists('Drillcorp_Excerpt')) {
 
-    function DrilllCorp_Excerpt($length = 55, $more = true)
+    function Drillcorp_Excerpt($length = 55, $more = true)
     {
-        DrilllCorp_Excerpt::length($length, $more);
+        Drillcorp_Excerpt::length($length, $more);
     }
 }

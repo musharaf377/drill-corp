@@ -5,10 +5,10 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 
-$drilllcorp = drilllcorp();
+$drillcorp = drillcorp();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('blog-standard-item-01 margin-bottom-30'); ?>>

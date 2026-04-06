@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Package DrilllCorp
+ * Package Drillcorp
  * Author Ir Tech
  * @since 1.0.1
  * */
@@ -10,8 +10,8 @@ if (! defined('ABSPATH')) {
 	exit(); //exit if access directly
 }
 
-if (! class_exists('DrilllCorp_Woocomerce_Customize')) {
-	class DrilllCorp_Woocomerce_Customize
+if (! class_exists('Drillcorp_Woocomerce_Customize')) {
+	class Drillcorp_Woocomerce_Customize
 	{
 		//$instance variable
 		private static $instance;
@@ -197,7 +197,7 @@ if (! class_exists('DrilllCorp_Woocomerce_Customize')) {
 
 			// $delivery_date = date("D d M", strtotime("+$delivery_days days"));
 
-			$delivery_date = drilllcorp_get_business_day($delivery_days);
+			$delivery_date = drillcorp_get_business_day($delivery_days);
 
 			if (!empty($delivery_days)) {
 ?>
@@ -249,13 +249,13 @@ if (! class_exists('DrilllCorp_Woocomerce_Customize')) {
 			global $woocommerce;
 			ob_start();
 		?>
-			<a class="drilllcorp-header-cart" href="<?php echo wc_get_cart_url(); ?>"
-				title="<?php esc_attr_e('View your shopping cart', 'drilllcorp'); ?>">
+			<a class="drillcorp-header-cart" href="<?php echo wc_get_cart_url(); ?>"
+				title="<?php esc_attr_e('View your shopping cart', 'drillcorp'); ?>">
 				<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 				<span class="cart-badge"><?php echo sprintf('%d', WC()->cart->get_cart_contents_count()); ?></span>
 			</a>
 		<?php
-			$fragments['a.drilllcorp-header-cart'] = ob_get_clean();
+			$fragments['a.drillcorp-header-cart'] = ob_get_clean();
 
 			return $fragments;
 		}
@@ -288,7 +288,7 @@ if (! class_exists('DrilllCorp_Woocomerce_Customize')) {
 		 * */
 		public function wc_product_post_class($class)
 		{
-			$class[] = is_product() ? 'drilllcorp-product-single-page-item' : 'drilllcorp-single-product-item';
+			$class[] = is_product() ? 'drillcorp-product-single-page-item' : 'drillcorp-single-product-item';
 
 			return $class;
 		}
@@ -311,7 +311,7 @@ if (! class_exists('DrilllCorp_Woocomerce_Customize')) {
 		public function woocommerce_before_shop_loop_item_ul_start()
 		{
 			?>
-				<ul class="drilllcorp-thumb-inner-item-list">
+				<ul class="drillcorp-thumb-inner-item-list">
 				<?php
 			}
 
@@ -327,7 +327,7 @@ if (! class_exists('DrilllCorp_Woocomerce_Customize')) {
 						$args = ['quantity', 'class', 'attributes', 'icon' => '<i class="fas fa-shopping-cart"></i>'];
 						global $product;
 						echo apply_filters(
-							'drilllcorp_woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
+							'drillcorp_woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
 							sprintf(
 								'<a href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s" %s>%s</a>',
 								esc_url($product->add_to_cart_url()),
@@ -336,7 +336,7 @@ if (! class_exists('DrilllCorp_Woocomerce_Customize')) {
 								$product->get_sku(),
 								esc_attr(isset($args['class']) ? $args['class'] : 'button add_to_cart_button ajax_add_to_cart'),
 								isset($args['attributes']) ? wc_implode_html_attributes($args['attributes']) : '',
-								wp_kses($args['icon'], DrilllCorp()->kses_allowed_html('all'))
+								wp_kses($args['icon'], Drillcorp()->kses_allowed_html('all'))
 							),
 							$product,
 							$args
@@ -367,7 +367,7 @@ if (! class_exists('DrilllCorp_Woocomerce_Customize')) {
 								$product->get_sku(),
 								esc_attr(isset($args['class']) ? $args['class'] : 'button add_to_cart_button yith-wcqv-button'),
 								isset($args['attributes']) ? wc_implode_html_attributes($args['attributes']) : '',
-								wp_kses($args['icon'], DrilllCorp()->kses_allowed_html('all'))
+								wp_kses($args['icon'], Drillcorp()->kses_allowed_html('all'))
 							),
 							$product,
 							$args
@@ -492,7 +492,7 @@ if (! class_exists('DrilllCorp_Woocomerce_Customize')) {
 			}
 		} //end class
 
-		if (class_exists('DrilllCorp_Woocomerce_Customize')) {
-			DrilllCorp_Woocomerce_Customize::getInstance();
+		if (class_exists('Drillcorp_Woocomerce_Customize')) {
+			Drillcorp_Woocomerce_Customize::getInstance();
 		}
 	}

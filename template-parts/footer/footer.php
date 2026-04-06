@@ -2,7 +2,7 @@
 
 /**
  * Theme Default Footer
- * @package drilllcorp
+ * @package drillcorp
  * @since 1.0.0
  */
 

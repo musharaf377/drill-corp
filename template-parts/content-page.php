@@ -5,7 +5,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 ?>
 
@@ -14,7 +14,7 @@
 		<?php
 		the_content();
 
-		drilllcorp()->link_pages();
+		drillcorp()->link_pages();
 		?>
 	</div><!-- .entry-content -->
 </div><!-- #post-<?php the_ID(); ?> -->

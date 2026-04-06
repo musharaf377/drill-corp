@@ -7,10 +7,10 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 
-$page_container_meta = DrilllCorp_Group_Fields_Value::page_container('drilllcorp', 'header_options');
+$page_container_meta = Drillcorp_Group_Fields_Value::page_container('drillcorp', 'header_options');
 ?>
 
 </div><!-- #content -->

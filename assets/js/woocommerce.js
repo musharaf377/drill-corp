@@ -96,7 +96,7 @@
             type: "POST",
             url: wc_add_to_cart_params.ajax_url,
             data: {
-              action: "drilllcorp_get_shipping_info",
+              action: "drillcorp_get_shipping_info",
               latitude: latitude,
               longitude: longitude,
             },
@@ -108,7 +108,7 @@
 							<path d="M3.16667 11.167C3.16667 11.609 3.34226 12.0329 3.65482 12.3455C3.96738 12.6581 4.39131 12.8337 4.83333 12.8337C5.27536 12.8337 5.69928 12.6581 6.01184 12.3455C6.3244 12.0329 6.5 11.609 6.5 11.167M3.16667 11.167C3.16667 10.725 3.34226 10.301 3.65482 9.98848C3.96738 9.67592 4.39131 9.50033 4.83333 9.50033C5.27536 9.50033 5.69928 9.67592 6.01184 9.98848C6.3244 10.301 6.5 10.725 6.5 11.167M3.16667 11.167H1.5V2.00033C1.5 1.77931 1.5878 1.56735 1.74408 1.41107C1.90036 1.25479 2.11232 1.16699 2.33333 1.16699H9.83333V11.167M6.5 11.167H11.5M11.5 11.167C11.5 11.609 11.6756 12.0329 11.9882 12.3455C12.3007 12.6581 12.7246 12.8337 13.1667 12.8337C13.6087 12.8337 14.0326 12.6581 14.3452 12.3455C14.6577 12.0329 14.8333 11.609 14.8333 11.167M11.5 11.167C11.5 10.725 11.6756 10.301 11.9882 9.98848C12.3007 9.67592 12.7246 9.50033 13.1667 9.50033C13.6087 9.50033 14.0326 9.67592 14.3452 9.98848C14.6577 10.301 14.8333 10.725 14.8333 11.167M14.8333 11.167H16.5V6.16699M16.5 6.16699H9.83333M16.5 6.16699L14 2.00033H9.83333" stroke="#3D3100" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
 						</svg> Free Delivery</button></div>`;
 
-                $(".drilllcorp-product-info .delivery-info").append(
+                $(".drillcorp-product-info .delivery-info").append(
                   freeShippingBtn
                 );
               }
@@ -158,7 +158,7 @@
      * -------------------------------------------------
      */
 
-    var buyNowButtonUrl = $(".drilllcorp-add-to-cart a.buy-now").attr(
+    var buyNowButtonUrl = $(".drillcorp-add-to-cart a.buy-now").attr(
       "href"
     );
 
@@ -197,7 +197,7 @@
 
       $('input[name="quantity"]').val(quantity);
 
-      $(".drilllcorp-add-to-cart a.buy-now").attr("href", urlWithQuantity);
+      $(".drillcorp-add-to-cart a.buy-now").attr("href", urlWithQuantity);
     }
   });
 

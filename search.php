@@ -5,11 +5,11 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 
 get_header();
-$page_layout_options = DrilllCorp_Group_Fields_Value::page_layout_options('search');
+$page_layout_options = Drillcorp_Group_Fields_Value::page_layout_options('search');
 ?>
 
 <section id="primary" class="content-area search-page-content-area padding-120">
@@ -33,7 +33,7 @@ $page_layout_options = DrilllCorp_Group_Fields_Value::page_layout_options('searc
 						endwhile;
 						?>
 						<div class="blog-pagination">
-							<?php drilllcorp()->post_pagination(); ?>
+							<?php drillcorp()->post_pagination(); ?>
 						</div>
 					<?php
 					else :

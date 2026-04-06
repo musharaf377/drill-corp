@@ -1,32 +1,32 @@
 (function ($) {
   $(document).ready(function () {
     // Hide/Show Filter Panel
-    $(document).on("click", ".drilllcorp-filter-button", function (e) {
-      $(".drilllcorp-woo-sidebar-overlay").addClass("show");
+    $(document).on("click", ".drillcorp-filter-button", function (e) {
+      $(".drillcorp-woo-sidebar-overlay").addClass("show");
     });
 
-    $(document).on("click", ".drilllcorp-woo-sidebar .close", function (e) {
-      $(".drilllcorp-woo-sidebar-overlay").removeClass("show");
+    $(document).on("click", ".drillcorp-woo-sidebar .close", function (e) {
+      $(".drillcorp-woo-sidebar-overlay").removeClass("show");
     });
 
-    $(".drilllcorp-woo-sidebar-overlay").click(function (e) {
-      var wooSideBar = $(".drilllcorp-woo-sidebar");
+    $(".drillcorp-woo-sidebar-overlay").click(function (e) {
+      var wooSideBar = $(".drillcorp-woo-sidebar");
       if (!wooSideBar.is(e.target) && wooSideBar.has(e.target).length === 0) {
-        $(".drilllcorp-woo-sidebar-overlay").removeClass("show");
+        $(".drillcorp-woo-sidebar-overlay").removeClass("show");
       }
     });
 
     // List View / Grid View
-    $(document).on("click", ".drilllcorp-layout-view .list-view", function () {
-      $(".drilllcorp-product-cat").addClass("list");
+    $(document).on("click", ".drillcorp-layout-view .list-view", function () {
+      $(".drillcorp-product-cat").addClass("list");
     });
-    $(document).on("click", ".drilllcorp-layout-view .grid-view", function () {
-      $(".drilllcorp-product-cat").removeClass("list");
+    $(document).on("click", ".drillcorp-layout-view .grid-view", function () {
+      $(".drillcorp-product-cat").removeClass("list");
     });
 
     // Function for Filter Products with Ajax call
-    function drilllcorpFilterProducts(paged = 1) {
-      $("ul.products").html("<div class='drilllcorp-loader'>Loading...</div>");
+    function drillcorpFilterProducts(paged = 1) {
+      $("ul.products").html("<div class='drillcorp-loader'>Loading...</div>");
 
       var brandFilters = [];
       var sizeFilters = [];
@@ -48,7 +48,7 @@
         type: "GET",
         url: wc_add_to_cart_params.ajax_url,
         data: {
-          action: "drilllcorp_filter_products",
+          action: "drillcorp_filter_products",
           current_url: window.location.href,
           paged: paged,
           in_stock: $("input#in_stock:checked").val(),
@@ -62,7 +62,7 @@
           brand: brandFilters,
           size: sizeFilters,
           pack_size: packSizeFilters,
-          sort_by: $("select[name='drilllcorp_orderby']").val(),
+          sort_by: $("select[name='drillcorp_orderby']").val(),
         },
         success: function (res) {
           // console.log(res);
@@ -97,44 +97,44 @@
         paged = parseInt($(".woocommerce-pagination .current").text()) - 1;
       }
 
-      drilllcorpFilterProducts(paged);
+      drillcorpFilterProducts(paged);
 
     });
 
     // Filter products by availibility, price range, attributes
-    $(".drilllcorp-filter-box").on("click", "input, li", function (e) {
-      $(".drilllcorp-woo-sidebar .clear-all").show();
+    $(".drillcorp-filter-box").on("click", "input, li", function (e) {
+      $(".drillcorp-woo-sidebar .clear-all").show();
 
       if (e.target.tagName.toLowerCase() === "li") {
         $(this)
-          .closest(".drilllcorp-filter-box")
+          .closest(".drillcorp-filter-box")
           .find("li")
           .removeClass("active");
         $(this).addClass("active");
       }
 
-      drilllcorpFilterProducts();
+      drillcorpFilterProducts();
     });
 
     // Products Sort By
-    $("select[name='drilllcorp_orderby']").on("change", function () {
-      $(".drilllcorp-woo-sidebar .clear-all").show();
-      drilllcorpFilterProducts();
+    $("select[name='drillcorp_orderby']").on("change", function () {
+      $(".drillcorp-woo-sidebar .clear-all").show();
+      drillcorpFilterProducts();
     });
 
     // Price Filter
     $("#min_price, #max_price").on("change", function () {
-      $(".drilllcorp-woo-sidebar .clear-all").show();
+      $(".drillcorp-woo-sidebar .clear-all").show();
 
       adjustPriceRangeOnSlide();
-      drilllcorpFilterProducts();
+      drillcorpFilterProducts();
     });
 
     $("#min_price,#max_price").on("paste keyup", function () {
-      $(".drilllcorp-woo-sidebar .clear-all").show();
+      $(".drillcorp-woo-sidebar .clear-all").show();
 
       adjustPriceRangeOnWrite();
-      drilllcorpFilterProducts();
+      drillcorpFilterProducts();
     });
 
     function adjustPriceRangeOnSlide() {
@@ -185,9 +185,9 @@
           $("#min_price").val(ui.values[0]);
           $("#max_price").val(ui.values[1]);
 
-          $(".drilllcorp-woo-sidebar .clear-all").show();
+          $(".drillcorp-woo-sidebar .clear-all").show();
 
-          drilllcorpFilterProducts();
+          drillcorpFilterProducts();
         },
       });
 

@@ -2,7 +2,7 @@
 
 /**
  * Theme Inline Style
- * @package drilllcorp
+ * @package drillcorp
  * @since 1.0.0
  */
 
@@ -14,17 +14,17 @@ if (!defined('ABSPATH')) {
  * Theme Inline CSS
  * @since 1.0.0
  * */
-global $drilllcorp_inline_css;
-$backend = drilllcorp();
-$drilllcorp_inline_css = '';
-$prefix = 'drilllcorp';
+global $drillcorp_inline_css;
+$backend = drillcorp();
+$drillcorp_inline_css = '';
+$prefix = 'drillcorp';
 ob_start();
 
 /*-----------------------------
 	Page options
 ------------------------------*/
-$page_id = drilllcorp()->page_id();
-$page_meta = DrilllCorp_Group_Fields_Value::page_container('drilllcorp', 'container_options');
+$page_id = drillcorp()->page_id();
+$page_meta = Drillcorp_Group_Fields_Value::page_container('drillcorp', 'container_options');
 $page_layout_meta = get_post_meta($page_id, $prefix . '_page_container_options', true);
 
 $page_bg_color = isset($page_layout_meta['page_bg_color']) && $page_layout_meta['page_bg_color'] ? $page_layout_meta['page_bg_color'] : '#ffffff';
@@ -73,4 +73,4 @@ if ($page_content_spacing) {
 CSS;
 }
 
-$drilllcorp_inline_css = ob_get_clean();
+$drillcorp_inline_css = ob_get_clean();

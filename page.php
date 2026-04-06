@@ -10,13 +10,13 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 
 get_header();
 
-$page_layout_meta = DrilllCorp_Group_Fields_Value::page_layout('drilllcorp');
-$page_container_meta = DrilllCorp_Group_Fields_Value::page_container('drilllcorp', 'container_options');
+$page_layout_meta = Drillcorp_Group_Fields_Value::page_layout('drillcorp');
+$page_container_meta = Drillcorp_Group_Fields_Value::page_container('drillcorp', 'container_options');
 $full_width_class = $page_layout_meta['content_column_class'] === 'col-lg-12' ? ' full-width-content ' : '';
 ?>
 <?php
@@ -32,7 +32,7 @@ if ('blank' == $page_layout_meta['layout']):
 
 else:
 ?>
-	<div id="primary" class="content-area drilllcorp-page-content-area <?php echo esc_attr($full_width_class); ?>">
+	<div id="primary" class="content-area drillcorp-page-content-area <?php echo esc_attr($full_width_class); ?>">
 		<main id="main" class="site-main">
 			<div class="<?php echo esc_attr($page_container_meta['page_container_class']) ?>">
 				<div class="row">

@@ -5,11 +5,11 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 
-$drilllcorp = drilllcorp();
-$post_meta = get_post_meta(get_the_ID(), 'drilllcorp_post_video_options', true);
+$drillcorp = drillcorp();
+$post_meta = get_post_meta(get_the_ID(), 'drillcorp_post_video_options', true);
 $video_url = isset($post_meta['video_url']) && $post_meta['video_url'] ? $post_meta['video_url'] : '';
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('blog-standard-item-01 margin-bottom-30'); ?>>
@@ -17,7 +17,7 @@ $video_url = isset($post_meta['video_url']) && $post_meta['video_url'] ? $post_m
     if (has_post_thumbnail()):
     ?>
         <div class="thumbnail">
-            <?php $drilllcorp->post_thumbnail('post-thumbnail'); ?>
+            <?php $drillcorp->post_thumbnail('post-thumbnail'); ?>
             <?php if (!empty($video_url)): ?>
                 <div class="hover">
                     <a href="<?php echo esc_url($video_url); ?>" class="video-play-btn mfp-iframe"><i class="fas fa-play"></i></a>

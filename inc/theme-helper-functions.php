@@ -2,7 +2,7 @@
 
 /**
  * Theme Helper Functions
- * @package drilllcorp
+ * @package nomadic
  * @since 1.0.0
  */
 
@@ -10,9 +10,9 @@ if (!defined("ABSPATH")) {
     exit(); //exit if access directly
 }
 
-if (!class_exists('DrilllCorp_Helper_Functions')) {
+if (!class_exists('Drillcorp_Helper_Functions')) {
 
-    class DrilllCorp_Helper_Functions
+    class Drillcorp_Helper_Functions
     {
         /**
          * $instance
@@ -42,7 +42,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
          * element when on single views.
          */
 
-        function post_thumbnail($size = 'drilllcorp_classic')
+        function post_thumbnail($size = 'nomadic_classic')
         {
             if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
                 return;
@@ -163,7 +163,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
         {
 
             $defaults = array(
-                'before' => '<div class="wp-link-pages"><span>' . esc_html__('Pages:', 'drilllcorp') . '</span>',
+                'before' => '<div class="wp-link-pages"><span>' . esc_html__('Pages:', 'nomadic') . '</span>',
                 'after' => '</div>',
                 'link_before' => '',
                 'link_after' => '',
@@ -182,7 +182,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
         public function post_pagination($nav_query = null)
         {
             global $wp_query;
-            $allowed_html = drilllcorp()->kses_allowed_html('all');
+            $allowed_html = drillcorp()->kses_allowed_html('all');
             $big = 12345678;
             if (null == $nav_query) {
                 $page_format = paginate_links(array(
@@ -201,7 +201,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
                         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     }
                     echo '<div class="blog-pagination margin-top-30"><ul>';
-                    echo '<li><span>' . esc_html($paged) . esc_html__(' of ', 'drilllcorp') . esc_html($wp_query->max_num_pages) . '</span></li>';
+                    echo '<li><span>' . esc_html($paged) . esc_html__(' of ', 'nomadic') . esc_html($wp_query->max_num_pages) . '</span></li>';
                     foreach ($page_format as $page) {
                         echo "<li>" . wp_kses($page, $allowed_html) . "</li>";
                     }
@@ -226,7 +226,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
                         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     }
                     echo '<div class="blog-pagination desktop-center margin-top-30"><ul>';
-                    echo '<li><span>' . esc_html($paged) . esc_html__(' of ', 'drilllcorp') . esc_html($nav_query->max_num_pages) . '</span></li>';
+                    echo '<li><span>' . esc_html($paged) . esc_html__(' of ', 'nomadic') . esc_html($nav_query->max_num_pages) . '</span></li>';
                     foreach ($page_format as $page) {
                         echo "<li>" . wp_kses($page, $allowed_html) . "</li>";
                     }
@@ -242,8 +242,8 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
         {
             $byline = sprintf(
                 /* translators: %s: post author. */
-                esc_html_x(' %s', 'post author', 'drilllcorp'),
-                '<a class="post-by url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '"> ' . esc_html__('By ', 'drilllcorp') . esc_html(get_the_author()) . '</a>'
+                esc_html_x(' %s', 'post author', 'nomadic'),
+                '<a class="post-by url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '"> ' . esc_html__('By ', 'nomadic') . esc_html(get_the_author()) . '</a>'
             );
 
             echo '<span class="user"> ' . $byline . '</span>'; // WPCS: XSS OK.
@@ -264,7 +264,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
 
             $posted_on = sprintf(
                 /* translators: %s: post date. */
-                esc_html_x(' %s', 'post date', 'drilllcorp'),
+                esc_html_x(' %s', 'post date', 'nomadic'),
                 '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
             );
 
@@ -283,7 +283,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
             $author_name = $user->display_name;
             $author_image = esc_url(get_avatar_url($user->ID));
             $author_link = esc_url(get_author_posts_url(get_the_author_meta('ID')));
-            printf('<div class="post-author"><div class="author-image"><img src="%1$s" class="image-fit rounded-circle" alt="%3$s"></div><a href="%2$s"> ' . esc_html__("By", "drilllcorp") . ' %3$s </a></div>', $author_image, $author_link, $author_name);
+            printf('<div class="post-author"><div class="author-image"><img src="%1$s" class="image-fit rounded-circle" alt="%3$s"></div><a href="%2$s"> ' . esc_html__("By", "nomadic") . ' %3$s </a></div>', $author_image, $author_link, $author_name);
         }
 
         /**
@@ -298,7 +298,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
             $author_name = $user->display_name;
             $author_image = esc_url(get_avatar_url($user->ID, ['size' => '180']));
 
-            printf('<div class="post-author"><div class="author-image"><img src="%1$s" class="image-fit" alt="%3$s"></div><div class="author-content"><cite class="post-by">' . esc_html__('Written By', 'drilllcorp') . '</cite><h3 class="title">%2$s</h3><p>%4$s</p></div></div>', $author_image, $author_name, $author_name, $author_desc);
+            printf('<div class="post-author"><div class="author-image"><img src="%1$s" class="image-fit" alt="%3$s"></div><div class="author-content"><cite class="post-by">' . esc_html__('Written By', 'nomadic') . '</cite><h3 class="title">%2$s</h3><p>%4$s</p></div></div>', $author_image, $author_name, $author_name, $author_desc);
         }
 
         /**
@@ -308,7 +308,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
         public function posted_tag()
         {
             /* translators: used between list items, there is a space after the comma */
-            $tags_list = get_the_tag_list('', esc_html_x(' ', 'list item separator', 'drilllcorp'));
+            $tags_list = get_the_tag_list('', esc_html_x(' ', 'list item separator', 'nomadic'));
             if ($tags_list) {
                 /* translators: 1: list of tags. */
                 printf('<ul class="tags"><li>' . ' %1$s' . '</li></ul>', $tags_list); // WPCS: XSS OK.
@@ -331,7 +331,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
                     <div class="prev-post">
                         <a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>">
                             <div class="title-with-link">
-                                <span><?php esc_html_e('Prev Post', 'drilllcorp') ?></span>
+                                <span><?php esc_html_e('Prev Post', 'nomadic') ?></span>
                                 <h3><?php echo esc_html(wp_trim_words($prev_post->post_title, 4, '.')); ?></h3>
                             </div>
                         </a>
@@ -346,7 +346,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
                     <div class="next-post">
                         <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>">
                             <div class="title-with-link">
-                                <span><?php esc_html_e('Next Post', 'drilllcorp') ?></span>
+                                <span><?php esc_html_e('Next Post', 'nomadic') ?></span>
                                 <h3><?php echo esc_html(wp_trim_words($next_post->post_title, 4, '.')); ?></h3>
                             </div>
                         </a>
@@ -365,12 +365,12 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
             $output = '<div class="post-navigation-area"><div class="post-navigation-inner">';
             if (!empty(get_previous_post_link())) {
                 $output .= sprintf('<div class="content-area %1s">', empty(get_next_post_link()) ? 'no-line' : '');
-                $output .= '<div class="content"><span class="prev-post">' . esc_html__('Previous', 'drilllcorp') . '</span>';
+                $output .= '<div class="content"><span class="prev-post">' . esc_html__('Previous', 'nomadic') . '</span>';
                 $output .= get_previous_post_link('<h4 class="title">%link<span>.</span></h4>') . '</div></div>';
             }
             if (!empty(get_next_post_link())) {
                 $output .= sprintf('<div class="content-area style-01 %1s">', empty(get_previous_post_link()) ? 'no-line' : '');
-                $output .= '<div class="content"><span class="next-post">' . esc_html__('Next', 'drilllcorp') . '</span>';
+                $output .= '<div class="content"><span class="next-post">' . esc_html__('Next', 'nomadic') . '</span>';
                 $output .= get_next_post_link('<h4 class="title">%link<span>.</span></h4>') . ' </div></div>';
             }
             $output .= '</div></div>';
@@ -409,88 +409,139 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
          */
         public function get_related_post(array $post_details)
         {
+            $post_type =  isset($post_details['post_type']) ? $post_details['post_type'] : 'post';
 
             // check if we're in the product post type
-            if (is_singular($post_details['post_type'])) {
+            if (is_singular($post_type)) {
+
                 // fetch taxonomy terms for current product
                 $productterms = get_the_terms(get_the_ID(), $post_details['taxonomy']);
-                if ($productterms) {
-                    $producttermnames[] = 0;
-                    foreach ($productterms as $productterm) {
-                        $producttermnames[] = $productterm->name;
-                    }
-                    // set up the query arguments
-                    $args = array(
-                        'post_type' => $post_details['post_type'],
-                        'posts_per_page' => $post_details['posts_per_page'],
-                        'post_status' => 'publish',
-                        'post__not_in' => array($post_details['exclude_id']),
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => $post_details['taxonomy'],
-                                'field' => 'slug',
-                                'terms' => $producttermnames,
-                            ),
-                        ),
-                    );
 
-                    // run the query
-                    $query = new \WP_Query($args);
+                $producttermnames[] = 0;
 
+                foreach ($productterms as $productterm) {
+                    $producttermnames[] = $productterm->name;
+                }
 
-                    $post_categories = get_the_terms(get_the_ID(), $post_details['taxonomy']);
-                    if ($query->have_posts()) : ?>
-                        <div class="product-related-wrap">
-                            <ul class="product-related-posts colum-<?php echo esc_attr($post_details['posts_per_page']) ?>">
+                // set up the query arguments
+                $args = array(
+                    'post_type' => $post_type,
+                    'posts_per_page' => $post_details['posts_per_page'],
+                    'post_status' => 'publish',
+                );
+
+                // run the query
+                $query = new \WP_Query($args);
+
+                $post_categories = get_the_terms(get_the_ID(), $post_details['taxonomy']);
+                if ($query->have_posts()) : ?>
+                    <div class="blog-related-wrap">
+                        <div class="section-heading">
+                            <div class="related-heading">
+                                <div class="related-subheading">
+                                    <div class="style-dot"></div>
+                                    <p>INSIGHT</p>
+                                </div>
                                 <?php
-                                while ($query->have_posts()) : $query->the_post();
-                                    $img_id = get_post_thumbnail_id(get_the_ID()) ? get_post_thumbnail_id(get_the_ID()) : false;
-                                    $img_url_val = $img_id ? wp_get_attachment_image_src($img_id, 'drilllcorp_grid', false) : '';
-                                    $img_url = is_array($img_url_val) && !empty($img_url_val) ? $img_url_val[0] : '';
-                                    $img_alt = get_post_meta($img_id, '_wp_attachment_image_alt', true);
-                                    $comments_count = get_comments_number(get_the_ID());
-                                    $comment_text = ($comments_count > 1) ? $comments_count . ' Comments' . '' : $comments_count . ' Comment' . '';
+                                if ($post_type == 'post') {
+                                    echo '<h2><span>Related </span> Blog</h2>';
+                                } else {
+                                    echo '<h2><span>More </span> Case Studies</h2>';
+                                }
+
                                 ?>
-                                    <li class="sm-outer-wrap">
-                                        <div class="service-single-item-04 margin-bottom-10">
-                                            <?php if (!empty($img_url)): ?>
-                                                <div class="thumb">
-                                                    <img src="<?php echo esc_url($img_url) ?>"
-                                                        alt="<?php echo esc_attr($img_alt) ?>">
-                                                </div>
-                                            <?php endif; ?>
-                                            <div class="content-wrap post-<?php echo esc_attr($post_details['post_type']) ?>">
-                                                <div class="content">
-                                                    <ul class="post-meta">
-                                                        <li>
+                            </div>
+
+                            <?php
+                            if ($post_type == 'post') {
+                                echo '<a href="' . esc_url(get_post_type_archive_link($post_type)) . '" class="blog-view-all-btn">' .
+                                    esc_html__('View All Blogs', 'nomadic') .
+                                    '<img src="' . get_template_directory_uri() . '/assets/img/right-arrow-black.svg" alt="">' .
+                                    '</a>';
+                            } else {
+                                echo '<a href="' . esc_url(get_post_type_archive_link($post_type)) . '" class="blog-view-all-btn">' .
+                                    esc_html__('View All Cases', 'nomadic') .
+                                    '<img src="' . get_template_directory_uri() . '/assets/img/right-arrow-black.svg" alt="">' .
+                                    '</a>';
+                            }
+                            ?>
+                        </div>
+                        <ul class="related-blog-card-wrap column-<?php echo esc_attr($post_details['posts_per_page']) ?>">
+                            <?php
+                            while ($query->have_posts()) : $query->the_post();
+                                $post_id = get_the_ID();
+                                $img_id = get_post_thumbnail_id($post_id) ? get_post_thumbnail_id($post_id) : false;
+                                $img_url_val = $img_id ? wp_get_attachment_image_src($img_id, 'nomadic_grid', false) : '';
+                                $img_url = is_array($img_url_val) && !empty($img_url_val) ? $img_url_val[0] : '';
+                                $img_alt = get_post_meta($img_id, '_wp_attachment_image_alt', true);
+                                $comments_count = get_comments_number($post_id);
+                                $comment_text = ($comments_count > 1) ? $comments_count . ' Comments' . '' : $comments_count . ' Comment' . '';
+                            ?>
+                                <li class="">
+                                    <div class="service-single-item-04 margin-bottom-10">
+                                        <?php if (!empty($img_url)): ?>
+                                            <div class="blog-thumbnail">
+                                                <a href="<?php echo get_the_permalink(); ?>"><img src="<?php echo esc_url($img_url) ?>"
+                                                        alt="<?php echo esc_attr($img_alt) ?>"></a>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <div class="content-wrap post-<?php echo esc_attr($post_type) ?>">
+                                            <div class="content">
+                                                <ul class="post-meta">
+                                                    <li>
+                                                        <div class="blog-meta">
                                                             <?php
-                                                            drilllcorp()->posted_on();
+                                                            if ($post_type == 'post') {
+                                                                echo drillcorp()->posted_on();
+                                                            } else {
+                                                                echo '';
+                                                            }
                                                             ?>
-                                                        </li>
-                                                        <li>
-                                                            <a href="<?php the_permalink(); ?>">
-                                                                <?php echo esc_html($comment_text); ?></a>
-                                                        </li>
-                                                    </ul>
+
+                                                            <?php
+                                                            if ($post_type == 'post') {
+                                                                echo '<div class="blog-dot-style"></div>';
+                                                                the_category();
+                                                            } else {
+                                                                $terms = wp_get_post_terms($post_id, 'case-study_cat');
+
+                                                                foreach ($terms as $term) {
+                                                                    echo '<div class="single-category">
+                                                                            <div class="blog-dot-style"></div>
+                                                                            <p class="case-category-text">' . $term->name . '</p>
+                                                                        </div>';
+                                                                }
+                                                            }
+
+                                                            ?>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <?php
+                                                if ($post_type == 'post') { ?>
                                                     <a href="<?php the_permalink(); ?>">
-                                                        <h4 class="title"><?php the_title(); ?></h4>
+                                                        <h2 class="blog-title"><?php the_title(); ?></h2>
                                                     </a>
-                                                    <?php DrilllCorp_Excerpt('18') ?>
-                                                    <a class="read-btn"
-                                                        href="<?php the_permalink(); ?>"><?php echo esc_html__('Read More', 'drilllcorp') ?>
-                                                        <i class="flaticon-right-arrow-2"></i>
+                                                <?php } else { ?>
+                                                    <a class="case-content-wrap" href="<?php the_permalink(); ?>">
+                                                        <h2 class="releted-case-title"><?php the_title(); ?></h2>
                                                     </a>
-                                                </div>
+                                                <?php } ?>
+                                                <a href="<?php echo get_the_permalink(); ?>" class="blog-read-more-btn">
+                                                    <?php esc_html_e('Read More', 'nomadic-core') ?>
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/right-arrow-black.svg" alt="">
+                                                </a>
                                             </div>
                                         </div>
-                                    </li>
-                                <?php endwhile; ?>
-                                <?php wp_reset_postdata(); ?>
-                            </ul>
-                        </div>
+                                    </div>
+                                </li>
+                            <?php endwhile; ?>
+                            <?php wp_reset_postdata(); ?>
+                        </ul>
+                    </div>
 <?php
-                    endif;
-                }
+                endif;
             }
         }
 
@@ -631,8 +682,7 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
         public function page_id()
         {
             global $post, $wp_query;
-
-            $page_type_id = (isset($post->ID) && is_array(self::get_pages_id()) && in_array($post->ID, self::get_pages_id())) ? $post->ID : false;
+            $page_type_id = (isset($post->ID) && in_array($post->ID, self::get_pages_id())) ? $post->ID : false;
 
             if (false == $page_type_id) {
                 $page_type_id = isset($wp_query->post->ID) ? $wp_query->post->ID : false;
@@ -685,12 +735,12 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
 
 
         /**
-         * Is drilllcorp active
+         * Is nomadic active
          * @since 1.0.0
          */
-        public function is_drilllcorp_active()
+        public function is_nomadic_active()
         {
-            $theme_name_array = array('DrilllCorp', 'DrilllCorp Child');
+            $theme_name_array = array('Nomadic', 'Nomadic Child');
             $current_theme = wp_get_theme();
             $current_theme_name = $current_theme->get('Name');
 
@@ -698,12 +748,21 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
         }
 
         /**
-         * is drilllcorp core active
+         * is nomadic core active
          * @since 1.0.0
          * */
-        public function is_drilllcorp_core_active()
+        public function is_nomadic_core_active()
         {
-            return defined('DRILLLCORP_CORE_SELF_PATH');
+            return defined('NOMADIC_CORE_SELF_PATH');
+        }
+
+        /**
+         * is drillcorp core active
+         * @since 1.0.0
+         * */
+        public function is_drillcorp_core_active()
+        {
+            return defined('DRILLCORP_CORE_SELF_PATH');
         }
 
         /**
@@ -714,37 +773,29 @@ if (!class_exists('DrilllCorp_Helper_Functions')) {
         public function comment_count()
         {
             $comments_count = get_comments_number(get_the_ID());
-            $comment_text = ($comments_count > 1) ? esc_html__('Comments', 'drilllcorp') . ' (' . $comments_count . ')' : esc_html__('Comments', 'drilllcorp') . ' (' . $comments_count . ')';
+            $comment_text = ($comments_count > 1) ? esc_html__('Comments', 'nomadic') . ' (' . $comments_count . ')' : esc_html__('Comments', 'nomadic') . ' (' . $comments_count . ')';
 
             printf($comment_text);
         }
 
-
-        function has_child_categories($category_id)
+        //reading time
+        public function get_reading_time($post_id = null)
         {
-            $children = get_terms([
-                'taxonomy' => 'product_cat',
-                'parent' => $category_id,
-                'hide_empty' => false // Set to true if you want to hide empty categories
-            ]);
+            // Get the post content
+            $post_id = $post_id ? $post_id : get_the_ID();
+            $content = get_post_field('post_content', $post_id);
 
-            return !empty($children) && !is_wp_error($children);
-        }
+            // Strip HTML tags and count words
+            $word_count = str_word_count(strip_tags($content));
 
-        function truncate_text_smart($text, $limit = 50)
-        {
-            if (strlen($text) > $limit) {
-                return substr($text, 0, strrpos(substr($text, 0, $limit), ' ')) . '...';
-            }
-            return $text;
-        }
+            // Calculate reading time (assume 200 words per minute)
+            $reading_time = ceil($word_count / 200);
 
-
-        function get_current_url()
-        {
-            $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-            return $current_url;
+            return $reading_time;
         }
     } //end class
+
+    if (class_exists('Drillcorp_Helper_Functions')) {
+        Drillcorp_Helper_Functions::getInstance();
+    }
 }

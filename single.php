@@ -5,15 +5,15 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package drilllcorp
+ * @package drillcorp
  */
 
 get_header();
-$drilllcorp = drilllcorp();
-$page_layout_meta = DrilllCorp_Group_Fields_Value::page_layout_options('blog_single');
+$drillcorp = drillcorp();
+$page_layout_meta = Drillcorp_Group_Fields_Value::page_layout_options('blog_single');
 $full_width_class = $page_layout_meta['content_column_class'] === 'col-lg-12' ? ' full-width-content ' : '';
-if ($drilllcorp->is_drilllcorp_core_active()) {
-    drilllcorp_core()->setPostViews(get_the_ID());
+if ($drillcorp->is_drillcorp_core_active()) {
+    drillcorp_core()->setPostViews(get_the_ID());
 }
 ?>
 <div id="primary" class="content-area blog-content-page padding-bottom-120 padding-top-25 <?php echo esc_attr($full_width_class); ?>">

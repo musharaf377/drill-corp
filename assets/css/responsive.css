@@ -77,18 +77,18 @@
     }
 
     /* Hide the menu by default on mobile */
-    #drilllcorp_main_menu.collapse:not(.show) {
+    #drillcorp_main_menu.collapse:not(.show) {
         display: none;
     }
 
-    #drilllcorp_main_menu.collapsing {
+    #drillcorp_main_menu.collapsing {
         height: 0;
         overflow: hidden;
         transition: height 0.35s ease;
     }
 
     /* Mobile menu styles */
-    #drilllcorp_main_menu {
+    #drillcorp_main_menu {
         position: absolute;
         top: 100%;
         left: 0;
@@ -99,11 +99,11 @@
         padding: 15px;
     }
 
-    #drilllcorp_main_menu .navbar-nav {
+    #drillcorp_main_menu .navbar-nav {
         flex-direction: column;
     }
 
-    #drilllcorp_main_menu .nav-item {
+    #drillcorp_main_menu .nav-item {
         margin: 5px 0;
     }
 
