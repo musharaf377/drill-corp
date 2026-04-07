@@ -111,7 +111,29 @@ if (class_exists('CSF')) {
                     ),
                 )
             ),
-            
+
+        )
+    ));
+
+    //	Career Meta Box
+    CSF::createMetabox($prefix . '_career_options', array(
+        'title' => esc_html__('Career Options', 'drillcorp'),
+        'post_type' => 'career',
+    ));
+    CSF::createSection($prefix . '_career_options', array(
+        'fields' => array(
+            array(
+                'id' => 'career_designation',
+                'type' => 'text',
+                'title' => esc_html__('Designation', 'drillcorp'),
+                'desc' => esc_html__('Enter the job designation', 'drillcorp'),
+            ),
+            array(
+                'id' => 'career_location',
+                'type' => 'text',
+                'title' => esc_html__('Location', 'drillcorp'),
+                'desc' => esc_html__('Enter the job location', 'drillcorp'),
+            ),
         )
     ));
     
