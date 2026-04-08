@@ -519,3 +519,77 @@ img.footer-shape-three {
     width: 100%;
     max-width: 1224px;
 }
+
+/* ==========================
+    Blog Details
+=========================== */
+.blog-hero-area {
+    position: relative;
+}
+
+.blog-top-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.blog-hero-area .thumbnail img {
+    width: 100%;
+    max-height: 760px;
+    height: auto;
+    object-fit: cover;
+}
+
+.blog-breadcurmb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(226, 239, 244, 1);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.blog-breadcurmb p {
+    color: rgba(226, 239, 244, 1);
+}
+
+.blog-main-title {
+    color: #fff;
+    font-size: 78px;
+    font-weight: 700;
+    max-width: 900px;
+    margin-top: 14px;
+    line-height: 1.1em;
+}
+
+.blog-content-wrapper {
+    padding: 120px 0;
+}
+
+.blog-left-content-wrap h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: rgba(13, 26, 33, 1);
+    margin-bottom: 28px;
+    padding-top: 40px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(13, 26, 33, 0.16);
+}
+
+.blog-left-content-wrap h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(13, 26, 33, 1);
+    margin-bottom: 28px;
+}
+
+.blog-left-content-wrap p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.blog-left-content-wrap .wp-block-image {
+    margin: 40px 0;
+}
+
