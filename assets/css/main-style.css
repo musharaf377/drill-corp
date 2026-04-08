@@ -593,3 +593,50 @@ img.footer-shape-three {
     margin: 40px 0;
 }
 
+/* ==========================
+    Related Blog
+========================== */
+.blog-list.related-blog-list{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.section-heading h2{
+  font-size: 68px;
+  font-weight: 700;
+  color: #0D1A21;
+}
+
+.related-blog-list .blog-list-item-thumb img{
+  height: 300px;
+}
+
+.blog-list-item {
+  background: #fff;
+}
+
+section.related-blog-area {
+    background: #E2EFF4;
+    padding: 120px 0px;
+}
+
+.section-heading{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.related-blog-list .blog-list-item-content{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-between;
+  padding: 24px;
+  height: 43%;
+}
+
+.related-blog-list .blog-list-item-title a{
+  font-size: 24px;
+  margin: 16px 0 30px;
+  font-weight: 700;
+}
