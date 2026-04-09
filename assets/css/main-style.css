@@ -544,10 +544,8 @@ img.footer-shape-three {
 .blog-breadcurmb {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     color: rgba(226, 239, 244, 1);
-    font-size: 18px;
-    font-weight: 500;
 }
 
 .blog-breadcurmb p {
@@ -559,7 +557,7 @@ img.footer-shape-three {
     font-size: 78px;
     font-weight: 700;
     max-width: 900px;
-    margin-top: 14px;
+    margin-top: 20px;
     line-height: 1.1em;
 }
 
@@ -639,4 +637,10 @@ section.related-blog-area {
   font-size: 24px;
   margin: 16px 0 30px;
   font-weight: 700;
+}
+
+.blog-breadcurmb a, .blog-breadcurmb p {
+    line-height: 1em;
+    font-weight: 500;
+    font-size: 18px;
 }

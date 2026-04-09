@@ -23,6 +23,7 @@ if ($drillcorp->is_drillcorp_core_active()) {
                 <div class="container">
                     <div class="blog-breadcurmb">
                         <a href="<?php echo esc_url(home_url('/')); ?>"><?php echo esc_html__('Home', 'drillcorp'); ?></a>
+                        <?php echo drillcorp_get_svg_icon('right_angle'); ?>
                         <p>Blog Details</p>
                     </div>
                     <h1 class="blog-main-title"><?php echo get_the_title(get_the_ID()); ?></h1>
@@ -97,6 +98,7 @@ if ($drillcorp->is_drillcorp_core_active()) {
             'orderby'             => 'date',
             'order'               => 'DESC',
             'post_status'         => 'publish',
+            'post__not_in'        => [get_the_ID()], // Exclude current post
         ];
 
         $query = new \WP_Query($args);
@@ -105,8 +107,7 @@ if ($drillcorp->is_drillcorp_core_active()) {
             echo '<p>' . esc_html__('No blog posts found.', 'drillcorp-core') . '</p>';
             return;
         }
-
-
+        
         ?>
         <div class="blog-list related-blog-list">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
