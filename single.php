@@ -18,7 +18,7 @@ if ($drillcorp->is_drillcorp_core_active()) {
 ?>
 <div id="primary" class="content-area blog-content-page padding-bottom-120 padding-top-25 <?php echo esc_attr($full_width_class); ?>">
     <main id="main" class="site-main">
-        <div class="blog-hero-area">
+        <div class="blog-details-hero-area">
             <div class="blog-top-content">
                 <div class="container">
                     <div class="blog-breadcurmb">

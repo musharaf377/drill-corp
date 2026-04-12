@@ -525,32 +525,32 @@ img.footer-shape-three {
 /* ==========================
     Blog Details
 =========================== */
-.blog-hero-area {
+.blog-details-hero-area {
   position: relative;
 }
 
-.blog-top-content {
+.blog-details-hero-area .blog-top-content {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
 }
 
-.blog-hero-area .thumbnail img {
+.blog-details-hero-area .thumbnail img {
   width: 100%;
   max-height: 760px;
   height: auto;
   object-fit: cover;
 }
 
-.blog-breadcurmb {
+.blog-details-hero-area .blog-breadcurmb {
   display: flex;
   align-items: center;
   gap: 8px;
   color: rgba(226, 239, 244, 1);
 }
 
-.blog-breadcurmb p {
+.blog-details-hero-area .blog-breadcurmb p {
   color: rgba(226, 239, 244, 1);
 }
 

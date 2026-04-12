@@ -678,6 +678,79 @@ if (class_exists('CSF')) {
 		)
 	));
 
+	/*-------------------------------------------------------
+		   ** Footer Top section  Options
+	--------------------------------------------------------*/
+	CSF::createSection($prefix . '_theme_options', array(
+		'title' => esc_html__('Footer Top Section', 'drillcorp'),
+		'id'    => 'footer_top_section',
+		'icon'  => ' eicon-footer',
+
+	));
+
+	CSF::createSection($prefix . '_theme_options', array(
+		'parent' => 'footer_top_section',
+		'id'     => 'footer_top_section_options',
+		'title'  => esc_html__('Footer Top Section Options', 'drillcorp'),
+		'icon'   => 'fa fa-list-ul',
+		'fields' => array(
+			array(
+				'type'    => 'subheading',
+				'content' => '<h3>' . esc_html__('Footer Settings', 'drillcorp') . '</h3>'
+			),
+			array(
+				'id'      => 'footer_top_section_image',
+				'type'    => 'media',
+				'title'   => esc_html__('Image', 'drillcorp'),
+				'library' => 'image',
+				'desc'    => wp_kses(__('you can upload <mark> logo</mark> here it will overwrite customizer uploaded logo', 'drillcorp'), $allowed_html),
+			),
+
+			array(
+				'type'    => 'Content',
+				'content' => '<h3>' . esc_html__('Footer Settings', 'drillcorp') . '</h3>'
+			),
+
+			array(
+				'id'      => 'footer_top_section_subtitle_logo',
+				'type'    => 'media',
+				'title'   => esc_html__('Sub Title Logo', 'drillcorp'),
+				'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis orci auctor, convallis nisl nec, aliquam orci. Sed quis orci auctor, convallis nisl nec, aliquam orci.', 'drillcorp'),
+			),
+
+			array(
+				'id'      => 'footer_top_section_subtitle',
+				'type'    => 'text',
+				'title'   => esc_html__('Sub Title', 'drillcorp'),
+				'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis orci auctor, convallis nisl nec, aliquam orci. Sed quis orci auctor, convallis nisl nec, aliquam orci.', 'drillcorp'),
+			),
+			array(
+				'id'      => 'footer_top_section_title',
+				'type'    => 'text',
+				'title'   => esc_html__('Title', 'drillcorp'),
+				'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis orci auctor, convallis nisl nec, aliquam orci. Sed quis orci auctor, convallis nisl nec, aliquam orci.', 'drillcorp'),
+			),
+			array(
+				'id'      => 'footer_top_section_desc',
+				'type'    => 'textarea',
+				'title'   => esc_html__('Description', 'drillcorp'),
+				'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis orci auctor, convallis nisl nec, aliquam orci. Sed quis orci auctor, convallis nisl nec, aliquam orci.', 'drillcorp'),
+			),
+			array(
+				'id'      => 'footer_top_section_button_text',
+				'type'    => 'text',
+				'title'   => esc_html__('Button Text', 'drillcorp'),
+				'default' => esc_html__('Click Here', 'drillcorp'),
+			),
+			array(
+				'id'      => 'footer_top_section_button_url',
+				'type'    => 'text',
+				'title'   => esc_html__('Button URL', 'drillcorp'),
+				'default' => esc_html__('https://www.drillcorp.com', 'drillcorp'),
+			),
+		)
+	));
+
 
 	/*-------------------------------------------------------
 		  ** Blog  Options

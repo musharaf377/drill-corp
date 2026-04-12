@@ -18,8 +18,46 @@ $footer_location = cs_get_option('footer_location');
 $footer_award_logo = cs_get_option('footer_award_repeater');
 $footer_bottom_menu = cs_get_option('footer_bottom_menu');
 
+// Footer Top Section Options
+$footer_top_image = cs_get_option('footer_top_section_image');
+$footer_top_subtitle_logo = cs_get_option('footer_top_section_subtitle_logo');
+$footer_top_subtitle = cs_get_option('footer_top_section_subtitle');
+$footer_top_title = cs_get_option('footer_top_section_title');
+$footer_top_desc = cs_get_option('footer_top_section_desc');
+$footer_top_button_text = cs_get_option('footer_top_section_button_text');
+$footer_top_button_url = cs_get_option('footer_top_section_button_url');
+
 
 ?>
+<section class="footer-top-section">
+    <div class="container">
+        <div class="footer-top-section-wrap">
+            <?php if (!empty($footer_top_image['url'])) : ?>
+                <img src="<?php echo esc_url($footer_top_image['url']); ?>" alt="<?php echo esc_attr($footer_top_image['alt']); ?>">
+            <?php endif; ?>
+            <div class="footer-top-section-content">
+                <div class="subtitle">
+                    <?php if (!empty($footer_top_subtitle_logo['url'])) : ?>
+                        <img src="<?php echo esc_url($footer_top_subtitle_logo['url']); ?>" alt="<?php echo esc_attr($footer_top_subtitle_logo['alt']); ?>">
+                    <?php endif; ?>
+                    <?php if (!empty($footer_top_subtitle)) : ?>
+                        <span><?php echo esc_html($footer_top_subtitle); ?></span>
+                    <?php endif; ?>
+                </div>
+                <?php if (!empty($footer_top_title)) : ?>
+                    <h2><?php echo esc_html($footer_top_title); ?></h2>
+                <?php endif; ?>
+                <?php if (!empty($footer_top_desc)) : ?>
+                    <p class="footer-top-section-desc"><?php echo esc_html($footer_top_desc); ?></p>
+                <?php endif; ?>
+                <?php if (!empty($footer_top_button_text) || !empty($footer_top_button_url)) : ?>
+                    <a href="<?php echo esc_url(!empty($footer_top_button_url) ? $footer_top_button_url : '#'); ?>" class="primary-btn"><?php echo esc_html($footer_top_button_text); ?></a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="footer-section">
     <div class="custom-container container">
         <div class="footer-top-area">
