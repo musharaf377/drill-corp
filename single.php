@@ -30,16 +30,24 @@ if ($drillcorp->is_drillcorp_core_active()) {
                 </div>
             </div>
 
-            <?php
-            if (has_post_thumbnail() || !empty($post_meta_gallery)):
-                $get_post_format = get_post_format();
-                if ('video' == $get_post_format || 'gallery' == $get_post_format) {
-                    get_template_part('template-parts/content/thumbnail', $get_post_format);
-                } else {
-                    get_template_part('template-parts/content/thumbnail');
-                }
-            endif;
-            ?>
+            <div class="blog-details-hero-thumbnail">
+                <div class="blog-hero-details-shape">
+                    <img class="blog-hero-left" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog-hero-left.png" alt="">
+                    <img class="blog-hero-right" src="<?php echo get_template_directory_uri(); ?>/assets/img/blog-hero-right.png" alt="">
+                </div>
+
+                <?php
+                if (has_post_thumbnail() || !empty($post_meta_gallery)):
+                    $get_post_format = get_post_format();
+                    if ('video' == $get_post_format || 'gallery' == $get_post_format) {
+                        get_template_part('template-parts/content/thumbnail', $get_post_format);
+                    } else {
+                        get_template_part('template-parts/content/thumbnail');
+                    }
+                endif;
+                ?>
+            </div>
+
 
         </div>
 
@@ -107,7 +115,7 @@ if ($drillcorp->is_drillcorp_core_active()) {
             echo '<p>' . esc_html__('No blog posts found.', 'drillcorp-core') . '</p>';
             return;
         }
-        
+
         ?>
         <div class="blog-list related-blog-list">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
