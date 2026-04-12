@@ -33,12 +33,12 @@ $footer_top_button_url = cs_get_option('footer_top_section_button_url');
     <div class="container">
         <div class="footer-top-section-wrap">
             <?php if (!empty($footer_top_image['url'])) : ?>
-                <img src="<?php echo esc_url($footer_top_image['url']); ?>" alt="<?php echo esc_attr($footer_top_image['alt']); ?>">
+                <img class="footer-top-section-image" src="<?php echo esc_url($footer_top_image['url']); ?>" alt="<?php echo esc_attr($footer_top_image['alt']); ?>">
             <?php endif; ?>
             <div class="footer-top-section-content">
                 <div class="subtitle">
                     <?php if (!empty($footer_top_subtitle_logo['url'])) : ?>
-                        <img src="<?php echo esc_url($footer_top_subtitle_logo['url']); ?>" alt="<?php echo esc_attr($footer_top_subtitle_logo['alt']); ?>">
+                        <img class="footer-top-section-subtitle-logo" src="<?php echo esc_url($footer_top_subtitle_logo['url']); ?>" alt="<?php echo esc_attr($footer_top_subtitle_logo['alt']); ?>">
                     <?php endif; ?>
                     <?php if (!empty($footer_top_subtitle)) : ?>
                         <span><?php echo esc_html($footer_top_subtitle); ?></span>
