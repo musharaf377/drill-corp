@@ -15,6 +15,9 @@ $full_width_class = $page_layout_meta['content_column_class'] === 'col-lg-12' ? 
 if ($drillcorp->is_drillcorp_core_active()) {
     drillcorp_core()->setPostViews(get_the_ID());
 }
+
+$contact_info_repeater = cs_get_option('contact_info_social');
+
 ?>
 <div id="primary" class="content-area blog-content-page padding-bottom-120 padding-top-25 <?php echo esc_attr($full_width_class); ?>">
     <main id="main" class="site-main">
@@ -67,17 +70,23 @@ if ($drillcorp->is_drillcorp_core_active()) {
                             <div class="blog-sidebar-area">
                                 <?php get_sidebar(); ?>
                                 <div class="contact-information">
-                                    <a href="" class="contact-us-link">Contact US <?php echo drillcorp_get_svg_icon('down_angle'); ?></a>
+                                    <a href="#" class="contact-us-link">Contact US <?php echo drillcorp_get_svg_icon('down_angle'); ?></a>
                                     <div class="contact-information-wrapper">
                                         <img class="contact-info-bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-info-bg.png" alt="">
                                         <div class="contact-info-content">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-info-thumb.png" alt="" class="contact-person-thumb">
-                                            <h3 class="contact-info-name"><?php echo esc_html__('Tansu Ozerkan', 'drillcorp'); ?></h3>
-                                            <p class="contact-info-designation"><?php echo esc_html__('Web Developer', 'drillcorp'); ?></p>
-                                            <p class="contact-info-location"><?php echo esc_html__('Location', 'drillcorp'); ?></p>
+                                            <img src="<?php echo esc_url(cs_get_option('contact_info_thumb_image')); ?>" alt="" class="contact-person-thumb">
+                                            <h3 class="contact-info-name"><?php echo esc_html(cs_get_option('contact_info_name')); ?></h3>
+                                            <p class="contact-info-designation"><?php echo esc_html(cs_get_option('contact_info_designation')); ?></p>
+                                            <p class="contact-info-location"><?php echo esc_html(cs_get_option('contact_info_location')); ?></p>
                                             <div class="contact-info-social">
-                                                <a href=""><?php echo drillcorp_get_svg_icon('linkedin'); ?></a>
-                                                <a href=""><?php echo drillcorp_get_svg_icon('twitter'); ?></a>
+                                                <?php
+                                                    if (!empty($contact_info_repeater)):
+                                                        foreach ($contact_info_repeater as $repeater):
+                                                            ?>
+                                                            <a href="<?php echo esc_url($repeater['contact_info_social_url']); ?>"><?php echo drillcorp_get_svg_icon($repeater['contact_info_social_icon']); ?></a>
+                                                        <?php endforeach;
+                                                    endif;
+                                                ?>
                                             </div>
                                         </div>
                                     </div>

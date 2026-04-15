@@ -550,6 +550,7 @@ img.blog-hero-left {
   z-index: 5;
   height: 100%;
   max-height: 100%;
+  max-width: 100%;
 }
 
 img.blog-hero-right {
@@ -641,6 +642,10 @@ img.blog-hero-right {
   margin: 40px 0;
 }
 
+.blog-sidebar-area .contact-information {
+  background: #acff2f;
+}
+
 /* ==========================
     Related Blog
 ========================== */
@@ -695,3 +700,104 @@ section.related-blog-area {
   font-weight: 500;
   font-size: 18px;
 }
+
+/* ==========================
+    Blog Details Bottom section
+=========================== */
+
+.post-template-default .footer-top-section {
+  display: block;
+}
+
+.footer-top-section {
+  display: none;
+}
+
+.footer-top-section-wrap {
+  display: grid;
+  background: #E2EFF4;
+  padding: 40px;
+  gap: 108px;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+section.footer-top-section {
+  background: #0D1A21;
+  padding: 120px 0;
+}
+
+.footer-top-section-content .subtitle {
+  display: inline-flex;
+  background: #92BCCD;
+  padding: 6px 8px;
+  border: 1px solid #FFFFFF26;
+  border-radius: 50px;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 16px;
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #0D1A21;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.footer-top-section-content h2 {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 58px;
+  line-height: 1.1;
+  color: #0D1A21;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.footer-top-section-content p {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #0D1A21;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.footer-top-section-image {
+  max-width: 558px;
+  width: 100%;
+}
+
+.footer-top-section-content h2 {
+  font-size: 38px;
+  margin-bottom: 16px;
+}
+
+.footer-top-section-wrap {
+  padding: 24px;
+  gap: 24px;
+}
+
+.footer-top-section-content .subtitle {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.footer-top-section-content p {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+img.footer-top-section-subtitle-logo {
+  height: 20px;
+  width: 20px;
+}
+
+.footer-top-section-content.primary-btn {
+  font-size: 16px;
+  padding: 12px;
+}
+
+section.footer-top-section {
+  padding: 80px 0;
+}
+

@@ -679,6 +679,76 @@ if (class_exists('CSF')) {
 	));
 
 	/*-------------------------------------------------------
+		   ** Contact info for sidebar
+	--------------------------------------------------------*/
+	CSF::createSection($prefix . '_theme_options', array(
+		'title' => esc_html__('Contact Info For Sidebar', 'drillcorp'),
+		'id'    => 'contact_info',
+		'icon'  => ' eicon-footer',
+
+	));
+
+	CSF::createSection($prefix . '_theme_options', array(
+		'parent' => 'contact_info',
+		'id'     => 'contact_info_section_options',
+		'title'  => esc_html__('Contact Info Section Options', 'drillcorp'),
+		'icon'   => 'fa fa-list-ul',
+		'fields' => array(
+			array(
+				'type'    => 'subheading',
+				'content' => '<h3>' . esc_html__('Contact Info Settings', 'drillcorp') . '</h3>'
+			),
+			array(
+				'id'      => 'contact_info_thumb_image',
+				'type'    => 'media',
+				'title'   => esc_html__('Thumbnail Image', 'drillcorp'),
+				'library' => 'image',
+				'desc'    => wp_kses(__('you can upload <mark> Thumbnail Image</mark> here it will overwrite customizer uploaded logo', 'drillcorp'), $allowed_html),
+			),
+			array(
+				'id'      => 'contact_info_name',
+				'type'    => 'text',
+				'title'   => esc_html__('Name', 'drillcorp'),
+				'desc'    => wp_kses(__('you can upload <mark> Name</mark> here it will overwrite customizer uploaded logo', 'drillcorp'), $allowed_html),
+			),
+			array(
+				'id'      => 'contact_info_designation',
+				'type'    => 'text',
+				'title'   => esc_html__('Designation', 'drillcorp'),
+				'desc'    => wp_kses(__('you can upload <mark> Designation</mark> here it will overwrite customizer uploaded logo', 'drillcorp'), $allowed_html),
+			),
+			array(
+				'id'      => 'contact_info_location',
+				'type'    => 'text',
+				'title'   => esc_html__('Location', 'drillcorp'),
+				'desc'    => wp_kses(__('you can upload <mark> Location</mark> here it will overwrite customizer uploaded logo', 'drillcorp'), $allowed_html),
+			), 
+			array(
+				'id'      => 'contact_info_social',
+				'type'    => 'repeater',
+				'title'   => esc_html__('Social', 'drillcorp'),
+				'desc'    => wp_kses(__('you can upload <mark> Social Icons</mark> here it will overwrite customizer uploaded logo', 'drillcorp'), $allowed_html),
+				'fields'  => array(
+					array(
+						'id'      => 'contact_info_social_icon',
+						'type'    => 'media',
+						'title'   => esc_html__('Social Icon', 'drillcorp'),
+						'library' => 'image',
+						'desc'    => wp_kses(__('you can upload <mark> Social Icons</mark> here it will overwrite customizer uploaded logo', 'drillcorp'), $allowed_html),
+					),
+					array(
+						'id'      => 'contact_info_social_url',
+						'type'    => 'text',
+						'title'   => esc_html__('Social URL', 'drillcorp'),
+						'default' => '#'
+					),
+				)
+			),
+			
+		)
+	));
+
+	/*-------------------------------------------------------
 		   ** Footer Top section  Options
 	--------------------------------------------------------*/
 	CSF::createSection($prefix . '_theme_options', array(
