@@ -141,6 +141,19 @@
     .navbar-nav li ul.sub-menu li a {
         padding: 0;
     }
+
+    /* Sidebar Area  */
+    .single-post .fixed-contact-button {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    .blog-sidebar-area {
+        display: none;
+    }
+
+
 }
 
 @media (max-width: 768px) {
