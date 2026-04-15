@@ -143,14 +143,33 @@
     }
 
     /* Sidebar Area  */
-    .single-post .fixed-contact-button {
+    /* .single-post .fixed-contact-button {
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
-    }
+    } */
 
     .blog-sidebar-area {
         display: none;
+    }
+
+    .single-post {
+        .fixed-contact-button {
+            padding-right: 16px;
+        }
+
+        .contact-information-wrapper {
+            margin-right: 16px;
+        }
+
+        .contact-information a {
+            font-size: 20px;
+            padding: 16px 16px 16px 16px;
+        }
+
+        .contact-us-link svg {
+            width: 16px;
+        }
     }
 
 
