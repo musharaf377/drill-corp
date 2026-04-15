@@ -67,31 +67,47 @@ $contact_info_repeater = cs_get_option('contact_info_social');
                     <?php if ($page_layout_meta['sidebar_enable']): ?>
 
                         <div class="<?php echo esc_attr($page_layout_meta['sidebar_column_class']); ?>">
-                            <div class="blog-sidebar-area">
+                            <div class="blog-sidebar-area fixed-contact-section">
                                 <?php get_sidebar(); ?>
                                 <div class="contact-information">
-                                    <a href="#" class="contact-us-link">Contact US <?php echo drillcorp_get_svg_icon('down_angle'); ?></a>
+                                    <a href="javascript:void(0);" class="contact-us-link" onclick="return false;">Contact US <?php echo drillcorp_get_svg_icon('down_angle'); ?></a>
                                     <div class="contact-information-wrapper">
                                         <img class="contact-info-bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-info-bg.png" alt="">
                                         <div class="contact-info-content">
-                                            <img src="<?php echo esc_url(cs_get_option('contact_info_thumb_image')); ?>" alt="" class="contact-person-thumb">
-                                            <h3 class="contact-info-name"><?php echo esc_html(cs_get_option('contact_info_name')); ?></h3>
-                                            <p class="contact-info-designation"><?php echo esc_html(cs_get_option('contact_info_designation')); ?></p>
-                                            <p class="contact-info-location"><?php echo esc_html(cs_get_option('contact_info_location')); ?></p>
+                                            <?php
+                                            $contact_thumb_raw = cs_get_option('contact_info_thumb_image');
+                                            $contact_thumb = is_array($contact_thumb_raw) ? ($contact_thumb_raw['url'] ?? '') : $contact_thumb_raw;
+                                            $contact_name = cs_get_option('contact_info_name');
+                                            $contact_designation = cs_get_option('contact_info_designation');
+                                            $contact_location = cs_get_option('contact_info_location');
+                                            ?>
+                                            <img src="<?php echo esc_url($contact_thumb); ?>" alt="" class="contact-person-thumb">
+                                            <h3 class="contact-info-name"><?php echo esc_html($contact_name); ?></h3>
+                                            <p class="contact-info-designation"><?php echo esc_html($contact_designation); ?></p>
+                                            <p class="contact-info-location"><?php echo esc_html($contact_location); ?></p>
                                             <div class="contact-info-social">
                                                 <?php
-                                                    if (!empty($contact_info_repeater)):
-                                                        foreach ($contact_info_repeater as $repeater):
-                                                            ?>
-                                                            <a href="<?php echo esc_url($repeater['contact_info_social_url']); ?>"><?php echo drillcorp_get_svg_icon($repeater['contact_info_social_icon']); ?></a>
-                                                        <?php endforeach;
-                                                    endif;
+                                                if (!empty($contact_info_repeater) && is_array($contact_info_repeater)):
+                                                    foreach ($contact_info_repeater as $repeater):
+                                                        $social_icon_raw = $repeater['contact_info_social_icon'] ?? '';
+                                                        $social_icon_url = is_array($social_icon_raw) ? ($social_icon_raw['url'] ?? '') : $social_icon_raw;
+                                                        $social_url = $repeater['contact_info_social_url'] ?? '#';
+                                                ?>
+                                                        <a href="<?php echo esc_url($social_url); ?>">
+                                                            <img src="<?php echo esc_url($social_icon_url); ?>" alt="Social Icon">
+                                                        </a>
+                                                <?php endforeach;
+                                                endif;
                                                 ?>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    <?php else: ?>
+                        <div class="col-12" style="background: red; padding: 20px; color: white;">
+                            SIDEBAR NOT ENABLE
                         </div>
                     <?php endif; ?>
                 </div>
@@ -157,5 +173,44 @@ $contact_info_repeater = cs_get_option('contact_info_social');
         </div>
     </div>
 </section>
+
+
+<!-- Contact info button fixed -->
+<div class="contact-information fixed-contact-button">
+    <a href="javascript:void(0);" class="contact-us-link" onclick="return false;">Contact US <?php echo drillcorp_get_svg_icon('down_angle'); ?></a>
+    <div class="contact-information-wrapper">
+        <img class="contact-info-bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-info-bg.png" alt="">
+        <div class="contact-info-content">
+            <?php
+            $contact_thumb_raw = cs_get_option('contact_info_thumb_image');
+            $contact_thumb = is_array($contact_thumb_raw) ? ($contact_thumb_raw['url'] ?? '') : $contact_thumb_raw;
+            $contact_name = cs_get_option('contact_info_name');
+            $contact_designation = cs_get_option('contact_info_designation');
+            $contact_location = cs_get_option('contact_info_location');
+            ?>
+            <img src="<?php echo esc_url($contact_thumb); ?>" alt="" class="contact-person-thumb">
+            <h3 class="contact-info-name"><?php echo esc_html($contact_name); ?></h3>
+            <p class="contact-info-designation"><?php echo esc_html($contact_designation); ?></p>
+            <p class="contact-info-location"><?php echo esc_html($contact_location); ?></p>
+            <div class="contact-info-social">
+                <?php
+                if (!empty($contact_info_repeater) && is_array($contact_info_repeater)):
+                    foreach ($contact_info_repeater as $repeater):
+                        $social_icon_raw = $repeater['contact_info_social_icon'] ?? '';
+                        $social_icon_url = is_array($social_icon_raw) ? ($social_icon_raw['url'] ?? '') : $social_icon_raw;
+                        $social_url = $repeater['contact_info_social_url'] ?? '#';
+                ?>
+                        <a href="<?php echo esc_url($social_url); ?>">
+                            <img src="<?php echo esc_url($social_icon_url); ?>" alt="Social Icon">
+                        </a>
+                <?php endforeach;
+                endif;
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <?php
 get_footer();
