@@ -333,7 +333,7 @@ if (class_exists('CSF')) {
 		'title' => esc_html__('Headers', 'drillcorp'),
 		'icon'  => 'fa fa-home'
 	));
-	/* Header Style 01 */
+	/* Header */
 	CSF::createSection($prefix . '_theme_options', array(
 		'title'  => esc_html__('Header One', 'drillcorp'),
 		'id'     => 'theme_header_one_options',
@@ -350,6 +350,20 @@ if (class_exists('CSF')) {
 				'title'   => esc_html__('Logo', 'drillcorp'),
 				'library' => 'image',
 				'desc'    => wp_kses(__('you can upload <mark> logo</mark> here it will overwrite customizer uploaded logo', 'drillcorp'), $allowed_html),
+			),
+			array(
+				'id'      => 'header_btn_text',
+				'type'    => 'text',
+				'title'   => esc_html__('Button Text', 'drillcorp'),
+				'default' => esc_html__('Get Started', 'drillcorp'),
+				'desc'    => wp_kses(__('you can set <mark>button text</mark> for header button', 'drillcorp'), $allowed_html),
+			),
+			array(
+				'id'      => 'header_btn_url',
+				'type'    => 'text',
+				'title'   => esc_html__('Button URL', 'drillcorp'),
+				'default' => '#',
+				'desc'    => wp_kses(__('you can set <mark>button URL</mark> for header button', 'drillcorp'), $allowed_html),
 			)
 		)
 	));

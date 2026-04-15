@@ -34,16 +34,64 @@
 
         <div id="drillcorp_main_menu" class="collapse navbar-collapse">
             <?php
+            // Custom walker to add dropdown icons
+            class Drillcorp_Nav_Walker extends Walker_Nav_Menu {
+                function start_lvl(&$output, $depth = 0, $args = null) {
+                    $output .= '<ul class="sub-menu">';
+                }
+                
+                function end_lvl(&$output, $depth = 0, $args = null) {
+                    $output .= '</ul>';
+                }
+                
+                function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+                    $classes = empty($item->classes) ? array() : (array) $item->classes;
+                    $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+                    $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+                    
+                    $id = apply_filters('nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args);
+                    $id = $id ? ' id="' . esc_attr($id) . '"' : '';
+                    
+                    $output .= '<li' . $id . $class_names .'>';
+                    
+                    $attributes = ! empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) .'"' : '';
+                    $attributes .= ! empty($item->target) ? ' target="' . esc_attr($item->target) .'"' : '';
+                    $attributes .= ! empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) .'"' : '';
+                    $attributes .= ! empty($item->url) ? ' href="' . esc_attr($item->url) .'"' : '';
+                    
+                    $item_output = $args->before;
+                    $item_output .= '<a'. $attributes .'>';
+                    $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
+                    
+                    // Add dropdown icon for items with children
+                    if (in_array('menu-item-has-children', $classes)) {
+                        $item_output .= '<svg class="dropdown-icon" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>';
+                    }
+                    
+                    $item_output .= '</a>';
+                    $item_output .= $args->after;
+                    
+                    $output .= $item_output;
+                }
+                
+                function end_el(&$output, $item, $depth = 0, $args = null) {
+                    $output .= '</li>';
+                }
+            }
+            
             wp_nav_menu(array(
                 'theme_location' => 'main-menu',
                 'menu_class'     => 'navbar-nav',
                 'container'      => false,
+                'walker'         => new Drillcorp_Nav_Walker(),
             ));
             ?>
         </div>
 
         <div class="header-btn">
-            <a href="#">Contact US</a>
+            <a href="<?php echo cs_get_option('header_btn_url'); ?>" target="_blank"><?php echo cs_get_option('header_btn_text'); ?></a>
         </div>
         
     </div>
