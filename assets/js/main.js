@@ -38,17 +38,20 @@
     =============================== */
 
   function openMobileMenu() {
-    $('#drillcorp_main_menu').addClass('show');
     $('.navbar-toggler').addClass('active');
     $('body').addClass('menu-open');
-    $('.mobile-menu-overlay').addClass('active');
+    $('.mobile-menu-overlay').fadeIn(300);
+    $('#drillcorp_main_menu').fadeIn(300).addClass('show');
   }
 
   function closeMobileMenu() {
-    $('#drillcorp_main_menu').removeClass('show');
+    $('#drillcorp_main_menu').fadeOut(300, function() {
+      $(this).removeClass('show');
+    });
     $('.navbar-toggler').removeClass('active');
-    $('body').removeClass('menu-open');
-    $('.mobile-menu-overlay').removeClass('active');
+    $('.mobile-menu-overlay').fadeOut(300, function() {
+      $('body').removeClass('menu-open');
+    });
   }
 
   // Toggle navbar menu
