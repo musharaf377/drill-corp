@@ -839,6 +839,12 @@ section.footer-top-section {
     max-width: 240px;
     line-height: 1em;
   }
+  .contact-us-link {
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(13, 26, 33, 1);
+  }
 
   a.contact-us-link svg {
       margin-top: 4px;
