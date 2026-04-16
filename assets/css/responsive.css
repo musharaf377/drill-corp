@@ -244,6 +244,26 @@
         padding: 80px 0;
     }
 
+    .footer-top-section-content h2 {
+        font-size: 38px;
+        margin-bottom: 16px;
+    }
+
+    .footer-top-section-wrap {
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .footer-top-section-content .subtitle {
+        margin-bottom: 12px;
+        font-size: 14px;
+    }
+
+    .footer-top-section-content p {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+
     /* 	blog related responsive */
 
     section.related-blog-area {
@@ -391,6 +411,7 @@
         padding: 16px;
         grid-template-columns: 1fr;
     }
+
     .footer-top-section-content h2 {
         font-size: 36px;
     }

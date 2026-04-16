@@ -763,26 +763,6 @@ section.footer-top-section {
   width: 100%;
 }
 
-.footer-top-section-content h2 {
-  font-size: 38px;
-  margin-bottom: 16px;
-}
-
-.footer-top-section-wrap {
-  padding: 24px;
-  gap: 24px;
-}
-
-.footer-top-section-content .subtitle {
-  margin-bottom: 12px;
-  font-size: 14px;
-}
-
-.footer-top-section-content p {
-  font-size: 16px;
-  margin-bottom: 16px;
-}
-
 img.footer-top-section-subtitle-logo {
   height: 20px;
   width: 20px;

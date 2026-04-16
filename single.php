@@ -120,7 +120,7 @@ $contact_info_repeater = cs_get_option('contact_info_social');
     <div class="container">
         <div class="section-heading">
             <h2>More Industry Insights</h2>
-            <button class=primary-btn>View All Insights</button>
+            <a class="primary-btn" href="/blog">View All Insights</a>
         </div>
 
         <?php
