@@ -155,8 +155,8 @@ p {
   transform: rotate(180deg);
 }
 #masthead .navbar {
-  /* padding: 20px 0px; */
-  background-color: #FFFFFFE5;
+  background-color: #FFF;
+  z-index: 99;
 }
 
 .logo-wrapper .custom-logo-link {
