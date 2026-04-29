@@ -155,7 +155,7 @@ if (class_exists('CSF')) {
 				'type'    => 'switcher',
 				'title'   => esc_html__('Enable Svg Upload ?', 'drillcorp'),
 				'desc'    => esc_html__('If you want to enable or disable svg upload you can set ( YES / NO )', 'drillcorp'),
-				'default' => false,
+				'default' => true,
 			),
 		)
 	));
