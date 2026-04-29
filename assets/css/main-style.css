@@ -439,6 +439,10 @@ p {
   filter: invert(1);
 }
 
+.footer-award-logo img {
+    max-width: 60px;
+}
+
 .footer-bottom-wrap {
   display: flex;
   align-items: center;
