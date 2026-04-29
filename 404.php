@@ -20,19 +20,13 @@ $error_bg = cs_get_option('error_bg');
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="error-404 not-found">
-                        <?php if (!empty($error_bg)): ?>
-                            <div class="thumb">
-                                <img src="<?php echo esc_url($error_bg['url']) ?>"
-                                    alt="<?php echo esc_attr($error_bg['alt']) ?>">
-                            </div>
-                        <?php endif; ?>
                         <h2 class="title"><?php echo esc_html($get_404_options_value['title']); ?></h2>
                         <p class="paragraph"><?php echo esc_html($get_404_options_value['paragraph']); ?></p>
                         <?php
                         get_search_form();
                         ?>
                         <div class="btn-wrap desktop-center margin-top-30">
-                            <a class="boxed-btn"
+                            <a class="primary-btn"
                                 href="<?php echo esc_url(home_url('/')); ?>"><?php echo esc_html($get_404_options_value['btn_text']); ?></a>
                         </div>
                     </div>

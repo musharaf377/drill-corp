@@ -460,6 +460,7 @@ p {
   display: flex;
   align-items: center;
   gap: 18px;
+  flex-wrap: wrap;
 }
 
 .copyright-text {

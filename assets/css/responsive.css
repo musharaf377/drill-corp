@@ -264,6 +264,17 @@
         margin-bottom: 16px;
     }
 
+    .footer-middle-right {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-bottom-wrap {
+        gap:20px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
     /* 	blog related responsive */
 
     section.related-blog-area {
