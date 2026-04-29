@@ -23,7 +23,7 @@ $error_bg = cs_get_option('error_bg');
                         <h2 class="title"><?php echo esc_html($get_404_options_value['title']); ?></h2>
                         <p class="paragraph"><?php echo esc_html($get_404_options_value['paragraph']); ?></p>
                         <?php
-                        get_search_form();
+                        // get_search_form();
                         ?>
                         <div class="btn-wrap desktop-center margin-top-30">
                             <a class="primary-btn"

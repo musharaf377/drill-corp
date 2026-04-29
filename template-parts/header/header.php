@@ -13,10 +13,10 @@
             <div class="logo-wrapper">
                 <?php
                 $header_one_logo = cs_get_option('header_one_logo');
-                if (has_custom_logo() && empty($header_one_logo['id'])) {
+                if (has_custom_logo() && (empty($header_one_logo) || empty($header_one_logo['id']))) {
                     the_custom_logo();
-                } elseif (! empty($header_one_logo['id'])) {
-                    printf('<a class="site-logo" href="%1$s"><img src="%2$s" alt="%3$s"/></a>', esc_url(get_home_url()), $header_one_logo['url'], $header_one_logo['alt']);
+                } elseif (! empty($header_one_logo) && ! empty($header_one_logo['id'])) {
+                    printf('<a class="site-logo" href="%1$s"><img src="%2$s" alt="%3$s"/></a>', esc_url(get_home_url()), $header_one_logo['url'], (!empty($header_one_logo['alt']) ? $header_one_logo['alt'] : get_bloginfo('name')));
                 } else {
                     printf('<a class="site-title" href="%1$s">%2$s</a>', esc_url(get_home_url()), esc_html(get_bloginfo('title')));
                 }
@@ -59,9 +59,9 @@
                     $attributes .= ! empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) .'"' : '';
                     $attributes .= ! empty($item->url) ? ' href="' . esc_attr($item->url) .'"' : '';
                     
-                    $item_output = $args->before;
+                    $item_output = (isset($args->before) && is_scalar($args->before)) ? $args->before : '';
                     $item_output .= '<a'. $attributes .'>';
-                    $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
+                    $item_output .= (isset($args->link_before) && is_scalar($args->link_before) ? $args->link_before : '') . apply_filters('the_title', $item->title, $item->ID) . (isset($args->link_after) && is_scalar($args->link_after) ? $args->link_after : '');
                     
                     // Add dropdown icon for items with children
                     if (in_array('menu-item-has-children', $classes)) {
@@ -71,7 +71,7 @@
                     }
                     
                     $item_output .= '</a>';
-                    $item_output .= $args->after;
+                    $item_output .= (isset($args->after) && is_scalar($args->after)) ? $args->after : '';
                     
                     $output .= $item_output;
                 }
