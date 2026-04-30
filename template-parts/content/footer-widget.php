@@ -171,8 +171,8 @@ $footer_top_button_url = cs_get_option('footer_top_section_button_url');
                     <?php
                     if (!empty($socialIcon)) :
                         foreach ($socialIcon as $icon) :
-                            echo '<li class="single-info-item"><a href=" ' . $icon['footer_social_icon_item_url'] . ' ">
-                                <img src="' . $icon['footer_social_icon_item_icon']['url'] . '" target="_blank" alt="' . $icon['footer_social_icon_item_icon']['alt'] . '"/></a></li>';
+                            echo '<li class="single-info-item"><a target="_blank" href=" ' . $icon['footer_social_icon_item_url'] . ' ">
+                                <img src="' . $icon['footer_social_icon_item_icon']['url'] . '"  alt="' . $icon['footer_social_icon_item_icon']['alt'] . '"/></a></li>';
                         endforeach;
                     endif;
                     ?>
