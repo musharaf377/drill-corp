@@ -80,7 +80,7 @@ $footer_top_button_url = cs_get_option('footer_top_section_button_url');
 
                     <div class="footer-extra-meta-wrap">
                         <div class="footer-extra-single-meta">
-                            <a href="<?php echo esc_url(cs_get_option('footer_content_download_link')['url']) ?>">
+                            <a href="<?php echo esc_url(cs_get_option('footer_content_download_link')['url']) ?>" target="_blank">
                                 <img src="<?php echo cs_get_option('footer_content_download_icon')['url']  ?>" alt="">
                                 <span><?php echo cs_get_option('footer_content_download_link')['text']; ?></span>
                             </a>
