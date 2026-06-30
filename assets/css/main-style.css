@@ -179,7 +179,7 @@ p {
 ---------------------------*/
 
 #masthead #menu-primary-menu li a .dropdown-icon {
-  margin-left: 8px;
+  margin-inline-start: 8px;
   transition: transform 0.3s ease;
 }
 
@@ -864,7 +864,7 @@ section.footer-top-section {
 }
 
 .site-logo {
-    display: block;
+  display: block;
 }
 
 /* Language Toggle */
@@ -872,7 +872,7 @@ section.footer-top-section {
   position: relative;
   display: flex;
   align-items: center;
-  margin-right: 16px;
+  margin-inline-end: 25px;
 }
 
 .lang-toggle-btn {
@@ -889,6 +889,10 @@ section.footer-top-section {
   color: inherit;
   transition: background 0.2s;
   flex-direction: row-reverse;
+}
+
+.lang-toggle-wrapper.is-mobile {
+    display: none;
 }
 
 body.rtl .lang-toggle-btn {

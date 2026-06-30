@@ -7,6 +7,43 @@
  */
 ?>
 
+<!-- Language Toggle -->
+<?php
+    $en_url      = cs_get_option('en_site_url');
+    $ar_url      = cs_get_option('ar_site_url');
+    $en_url      = !empty($en_url) ? $en_url : 'https://drillcorpsaudi.com/';
+    $ar_url      = !empty($ar_url) ? $ar_url : 'https://drillcorpsaudi.com/ar/';
+    $current_url = home_url('/');
+    $is_arabic   = (rtrim($current_url, '/') === rtrim($ar_url, '/'));
+
+    // Build page-aware switch URLs so /about/ → /ar/about/ and vice versa
+    $ar_path_prefix = parse_url($ar_url, PHP_URL_PATH);          // e.g. "/ar/"
+    $current_path   = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+    if ($is_arabic) {
+        // Strip AR prefix from current path to get the page slug
+        if (strpos($current_path, $ar_path_prefix) === 0) {
+            $page_path = '/' . substr($current_path, strlen($ar_path_prefix));
+        } else {
+            $page_path = $current_path;
+        }
+        $link_en = rtrim($en_url, '/') . $page_path;
+        $link_ar = $ar_url;
+    } else {
+        $link_en = $en_url;
+        $link_ar = rtrim($ar_url, '/') . '/' . ltrim($current_path, '/');
+    }
+
+    $en_flag_icon = cs_get_option('en_flag_icon');
+    $ar_flag_icon = cs_get_option('ar_flag_icon');
+    $en_flag_url  = !empty($en_flag_icon['url']) ? $en_flag_icon['url'] : '';
+    $ar_flag_url  = !empty($ar_flag_icon['url']) ? $ar_flag_icon['url'] : '';
+
+    $active_label    = $is_arabic ? 'AR' : 'EN';
+    $active_flag_url = $is_arabic ? $ar_flag_url : $en_flag_url;
+    $active_flag_alt = $is_arabic ? 'Arabic' : 'English';
+?>
+
 <nav class="navbar navbar-area navbar-expand-lg">
     <div class="container custom-container">
         <div class="responsive-mobile-menu">
@@ -22,6 +59,37 @@
                 }
                 ?>
             </div>
+
+            <div class="lang-toggle-wrapper is-mobile">
+                <button class="lang-toggle-btn" id="langToggleBtn" aria-haspopup="true" aria-expanded="false">
+                    <svg class="lang-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L6 6L11 1" stroke="#0D1A21" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="lang-label"><?php echo esc_html($active_label); ?></span>
+                    <?php if ($active_flag_url) : ?>
+                        <span class="lang-flag"><img src="<?php echo esc_url($active_flag_url); ?>" alt="<?php echo esc_attr($active_flag_alt); ?>" width="28" height="28" /></span>
+                    <?php endif; ?>
+                </button>
+                <ul class="lang-dropdown" id="langDropdown" role="menu">
+                    <li role="menuitem">
+                        <a href="<?php echo esc_url($link_en); ?>">
+                            <?php if ($en_flag_url) : ?>
+                                <img src="<?php echo esc_url($en_flag_url); ?>" alt="English" width="20" height="20" />
+                            <?php endif; ?>
+                            EN
+                        </a>
+                    </li>
+                    <li role="menuitem">
+                        <a href="<?php echo esc_url($link_ar); ?>">
+                            <?php if ($ar_flag_url) : ?>
+                                <img src="<?php echo esc_url($ar_flag_url); ?>" alt="Arabic" width="20" height="20" />
+                            <?php endif; ?>
+                            AR
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#drillcorp_main_menu"
                 aria-expanded="false" aria-label="<?php  //esc_attr__('Toggle navigation', 'drillcorp') ?>">
                 <span class="navbar-toggler-icon">
@@ -90,43 +158,7 @@
             ?>
         </div>
 
-        <!-- Language Toggle -->
-        <?php
-        $en_url      = cs_get_option('en_site_url');
-        $ar_url      = cs_get_option('ar_site_url');
-        $en_url      = !empty($en_url) ? $en_url : 'https://drillcorpsaudi.com/';
-        $ar_url      = !empty($ar_url) ? $ar_url : 'https://drillcorpsaudi.com/ar/';
-        $current_url = home_url('/');
-        $is_arabic   = (rtrim($current_url, '/') === rtrim($ar_url, '/'));
-
-        // Build page-aware switch URLs so /about/ → /ar/about/ and vice versa
-        $ar_path_prefix = parse_url($ar_url, PHP_URL_PATH);          // e.g. "/ar/"
-        $current_path   = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-        if ($is_arabic) {
-            // Strip AR prefix from current path to get the page slug
-            if (strpos($current_path, $ar_path_prefix) === 0) {
-                $page_path = '/' . substr($current_path, strlen($ar_path_prefix));
-            } else {
-                $page_path = $current_path;
-            }
-            $link_en = rtrim($en_url, '/') . $page_path;
-            $link_ar = $ar_url;
-        } else {
-            $link_en = $en_url;
-            $link_ar = rtrim($ar_url, '/') . '/' . ltrim($current_path, '/');
-        }
-
-        $en_flag_icon = cs_get_option('en_flag_icon');
-        $ar_flag_icon = cs_get_option('ar_flag_icon');
-        $en_flag_url  = !empty($en_flag_icon['url']) ? $en_flag_icon['url'] : '';
-        $ar_flag_url  = !empty($ar_flag_icon['url']) ? $ar_flag_icon['url'] : '';
-
-        $active_label    = $is_arabic ? 'AR' : 'EN';
-        $active_flag_url = $is_arabic ? $ar_flag_url : $en_flag_url;
-        $active_flag_alt = $is_arabic ? 'Arabic' : 'English';
-        ?>
-        <div class="lang-toggle-wrapper">
+        <div class="lang-toggle-wrapper is-desktop">
             <button class="lang-toggle-btn" id="langToggleBtn" aria-haspopup="true" aria-expanded="false">
                 <svg class="lang-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1L6 6L11 1" stroke="#0D1A21" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
