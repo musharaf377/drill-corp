@@ -198,8 +198,8 @@ p {
 }
 
 .logo-wrapper a img {
-  width: 76px;
-  height: 100%;
+  max-width: 100px;
+  height: auto;
 }
 
 #masthead #menu-primary-menu {
@@ -863,6 +863,9 @@ section.footer-top-section {
 
 }
 
+.site-logo {
+    display: block;
+}
 
 /* Language Toggle */
 .lang-toggle-wrapper {
