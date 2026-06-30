@@ -6,9 +6,9 @@
   "use strict";
 
   jQuery(document).ready(function ($) {
-  
+
     /*-------------------------------
-            back to top
+      back to top
         ------------------------------*/
     $(document).on("click", ".back-to-top", function () {
       $("html,body").animate(
@@ -20,9 +20,9 @@
     });
   });
 
-  $(window).on("resize", function () {});
+  $(window).on("resize", function () { });
 
-  
+
 
   $(window).on("load", function () {
     /*-----------------------------
@@ -33,9 +33,9 @@
   });
 
 
-   /* ==============================
-     Mobile menu click function
-    =============================== */
+  /* ==============================
+    Mobile menu click function
+   =============================== */
 
   function openMobileMenu() {
     $('.navbar-toggler').addClass('active');
@@ -45,11 +45,11 @@
   }
 
   function closeMobileMenu() {
-    $('#drillcorp_main_menu').fadeOut(300, function() {
+    $('#drillcorp_main_menu').fadeOut(300, function () {
       $(this).removeClass('show');
     });
     $('.navbar-toggler').removeClass('active');
-    $('.mobile-menu-overlay').fadeOut(300, function() {
+    $('.mobile-menu-overlay').fadeOut(300, function () {
       $('body').removeClass('menu-open');
     });
   }
@@ -118,5 +118,21 @@
     }
   });
 
-    
+  /* ==============================
+    Language Toggle
+   =============================== */
+  $(document).on('click', '#langToggleBtn', function (e) {
+    e.stopPropagation();
+    var $dropdown = $('#langDropdown');
+    var isOpen = $dropdown.toggleClass('open').hasClass('open');
+    $(this).attr('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  $(document).on('click', function (e) {
+    if (!$(e.target).closest('.lang-toggle-wrapper').length) {
+      $('#langDropdown').removeClass('open');
+      $('#langToggleBtn').attr('aria-expanded', 'false');
+    }
+  });
+
 })(jQuery);
