@@ -99,12 +99,30 @@
         $current_url = home_url('/');
         $is_arabic   = (rtrim($current_url, '/') === rtrim($ar_url, '/'));
 
+        // Build page-aware switch URLs so /about/ → /ar/about/ and vice versa
+        $ar_path_prefix = parse_url($ar_url, PHP_URL_PATH);          // e.g. "/ar/"
+        $current_path   = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+        if ($is_arabic) {
+            // Strip AR prefix from current path to get the page slug
+            if (strpos($current_path, $ar_path_prefix) === 0) {
+                $page_path = '/' . substr($current_path, strlen($ar_path_prefix));
+            } else {
+                $page_path = $current_path;
+            }
+            $link_en = rtrim($en_url, '/') . $page_path;
+            $link_ar = $ar_url;
+        } else {
+            $link_en = $en_url;
+            $link_ar = rtrim($ar_url, '/') . '/' . ltrim($current_path, '/');
+        }
+
         $en_flag_icon = cs_get_option('en_flag_icon');
         $ar_flag_icon = cs_get_option('ar_flag_icon');
         $en_flag_url  = !empty($en_flag_icon['url']) ? $en_flag_icon['url'] : '';
         $ar_flag_url  = !empty($ar_flag_icon['url']) ? $ar_flag_icon['url'] : '';
 
-        $active_label   = $is_arabic ? 'AR' : 'EN';
+        $active_label    = $is_arabic ? 'AR' : 'EN';
         $active_flag_url = $is_arabic ? $ar_flag_url : $en_flag_url;
         $active_flag_alt = $is_arabic ? 'Arabic' : 'English';
         ?>
@@ -120,7 +138,7 @@
             </button>
             <ul class="lang-dropdown" id="langDropdown" role="menu">
                 <li role="menuitem">
-                    <a href="<?php echo esc_url($en_url); ?>">
+                    <a href="<?php echo esc_url($link_en); ?>">
                         <?php if ($en_flag_url) : ?>
                             <img src="<?php echo esc_url($en_flag_url); ?>" alt="English" width="20" height="20" />
                         <?php endif; ?>
@@ -128,7 +146,7 @@
                     </a>
                 </li>
                 <li role="menuitem">
-                    <a href="<?php echo esc_url($ar_url); ?>">
+                    <a href="<?php echo esc_url($link_ar); ?>">
                         <?php if ($ar_flag_url) : ?>
                             <img src="<?php echo esc_url($ar_flag_url); ?>" alt="Arabic" width="20" height="20" />
                         <?php endif; ?>
