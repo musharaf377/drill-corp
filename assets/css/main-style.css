@@ -878,25 +878,22 @@ section.footer-top-section {
 .lang-toggle-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  background: none;
+  gap: 5px;
+  background: #fff;
   border: none;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
   color: inherit;
-  transition: background 0.2s;
-  flex-direction: row-reverse;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.lang-toggle-btn:hover {
+  border-color: #C7CDD1;
 }
 
 .lang-toggle-wrapper.is-mobile {
   display: none;
-}
-
-body.rtl .lang-toggle-btn {
-  flex-direction: row;
 }
 
 body.rtl .hero-slider-content {
@@ -905,6 +902,10 @@ body.rtl .hero-slider-content {
 
 body.rtl .slider-progress-content {
   width: 100%;
+}
+
+.lang-globe {
+  flex-shrink: 0;
 }
 
 .lang-chevron {
@@ -923,45 +924,16 @@ body.rtl .slider-progress-content {
   line-height: 1.4;
 }
 
-.lang-flag img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.lang-dropdown li a {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 2px 6px;
-  border-radius: 5px;
-  color: #0D1A21;
-  font-size: 16px;
-}
-
-.lang-dropdown li a img {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
 .lang-dropdown {
   display: block;
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 18px);
   right: 0;
   background: #fff;
-  border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   list-style: none;
   margin: 0;
-  padding: 10px;
-  min-width: 100px;
+  min-width: 210px;
   z-index: 9999;
   opacity: 0;
   transform: translateY(-8px);
@@ -975,10 +947,26 @@ body.rtl .slider-progress-content {
   pointer-events: auto;
 }
 
-.lang-dropdown li:not(:last-child) {
-  padding-bottom: 5px;
+.lang-dropdown-title,
+.lang-dropdown li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  color: #0D1A21;
+  font-size: 18px;
+}
+
+.lang-check {
+  flex-shrink: 0;
 }
 
 .lang-dropdown li a:hover {
   background: #f5f5f5;
+}
+
+.lang-dropdown li.is-active a,
+.lang-dropdown li.is-active a:hover {
+  background: #193441;
+  color: #fff;
 }

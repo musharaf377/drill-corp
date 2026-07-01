@@ -47,7 +47,16 @@ function drillcorp_get_svg_icon($icon)
                             <path d="M1.57812 5.1226H3.90212V12.5986H1.57812V5.1226Z" fill="white"/>
                             <path d="M2.74244 1.40082C2.00044 1.40082 1.39844 2.00282 1.39844 2.74482C1.39844 3.48682 2.00044 4.10282 2.74244 4.10282C3.48444 4.10282 4.08644 3.48682 4.08644 2.74482C4.08644 2.00282 3.48444 1.40082 2.74244 1.40082Z" fill="white"/>
                         </svg>',
-        
+
+        'globe' => '<svg class="lang-globe" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C4.85786 1.5 1.5 4.85786 1.5 9C1.5 13.1421 4.85786 16.5 9 16.5Z" stroke="#0D1A21" stroke-width="1.2"/>
+                            <path d="M1.5 9H16.5" stroke="#0D1A21" stroke-width="1.2"/>
+                            <path d="M9 1.5C10.8763 3.5501 11.9469 6.21556 12 9C11.9469 11.7844 10.8763 14.4499 9 16.5C7.12371 14.4499 6.05307 11.7844 6 9C6.05307 6.21556 7.12371 3.5501 9 1.5Z" stroke="#0D1A21" stroke-width="1.2"/>
+                        </svg>',
+
+        'check' => '<svg class="lang-check" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.6667 3.5L5.25 9.91667L2.33334 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>',
 
 
 

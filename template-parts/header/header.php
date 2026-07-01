@@ -34,14 +34,7 @@
         $link_ar = rtrim($ar_url, '/') . '/' . ltrim($current_path, '/');
     }
 
-    $en_flag_icon = cs_get_option('en_flag_icon');
-    $ar_flag_icon = cs_get_option('ar_flag_icon');
-    $en_flag_url  = !empty($en_flag_icon['url']) ? $en_flag_icon['url'] : '';
-    $ar_flag_url  = !empty($ar_flag_icon['url']) ? $ar_flag_icon['url'] : '';
-
-    $active_label    = $is_arabic ? 'AR' : 'EN';
-    $active_flag_url = $is_arabic ? $ar_flag_url : $en_flag_url;
-    $active_flag_alt = $is_arabic ? 'Arabic' : 'English';
+    $active_label = $is_arabic ? 'AR' : 'EN';
 ?>
 
 <nav class="navbar navbar-area navbar-expand-lg">
@@ -62,29 +55,24 @@
 
             <div class="lang-toggle-wrapper is-mobile">
                 <button class="lang-toggle-btn" id="langToggleBtnMobile" aria-haspopup="true" aria-expanded="false">
+                    <?php echo drillcorp_get_svg_icon('globe'); ?>
+                    <span class="lang-label"><?php echo esc_html($active_label); ?></span>
                     <svg class="lang-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L6 6L11 1" stroke="#0D1A21" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="lang-label"><?php echo esc_html($active_label); ?></span>
-                    <?php if ($active_flag_url) : ?>
-                        <span class="lang-flag"><img src="<?php echo esc_url($active_flag_url); ?>" alt="<?php echo esc_attr($active_flag_alt); ?>" width="28" height="28" /></span>
-                    <?php endif; ?>
                 </button>
                 <ul class="lang-dropdown" id="langDropdownMobile" role="menu">
-                    <li role="menuitem">
+                    <li class="lang-dropdown-title" role="presentation"><?php esc_html_e('Choose Language', 'drillcorp'); ?></li>
+                    <li role="menuitem" class="<?php echo !$is_arabic ? 'is-active' : ''; ?>">
                         <a href="<?php echo esc_url($link_en); ?>">
-                            <?php if ($en_flag_url) : ?>
-                                <img src="<?php echo esc_url($en_flag_url); ?>" alt="English" width="20" height="20" />
-                            <?php endif; ?>
-                            EN
+                            <?php if (!$is_arabic) : ?><?php echo drillcorp_get_svg_icon('check'); ?><?php endif; ?>
+                            <?php esc_html_e('English', 'drillcorp'); ?>
                         </a>
                     </li>
-                    <li role="menuitem">
+                    <li role="menuitem" class="<?php echo $is_arabic ? 'is-active' : ''; ?>">
                         <a href="<?php echo esc_url($link_ar); ?>">
-                            <?php if ($ar_flag_url) : ?>
-                                <img src="<?php echo esc_url($ar_flag_url); ?>" alt="Arabic" width="20" height="20" />
-                            <?php endif; ?>
-                            AR
+                            <?php if ($is_arabic) : ?><?php echo drillcorp_get_svg_icon('check'); ?><?php endif; ?>
+                            <?php esc_html_e('Arabic', 'drillcorp'); ?>
                         </a>
                     </li>
                 </ul>
@@ -160,29 +148,24 @@
 
         <div class="lang-toggle-wrapper is-desktop">
             <button class="lang-toggle-btn" id="langToggleBtnDesktop" aria-haspopup="true" aria-expanded="false">
+                <?php echo drillcorp_get_svg_icon('globe'); ?>
+                <span class="lang-label"><?php echo esc_html($active_label); ?></span>
                 <svg class="lang-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1L6 6L11 1" stroke="#0D1A21" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span class="lang-label"><?php echo esc_html($active_label); ?></span>
-                <?php if ($active_flag_url) : ?>
-                    <span class="lang-flag"><img src="<?php echo esc_url($active_flag_url); ?>" alt="<?php echo esc_attr($active_flag_alt); ?>" width="28" height="28" /></span>
-                <?php endif; ?>
             </button>
             <ul class="lang-dropdown" id="langDropdownDesktop" role="menu">
-                <li role="menuitem">
+                <li class="lang-dropdown-title" role="presentation"><?php esc_html_e('Choose Language', 'drillcorp'); ?></li>
+                <li role="menuitem" class="<?php echo !$is_arabic ? 'is-active' : ''; ?>">
                     <a href="<?php echo esc_url($link_en); ?>">
-                        <?php if ($en_flag_url) : ?>
-                            <img src="<?php echo esc_url($en_flag_url); ?>" alt="English" width="20" height="20" />
-                        <?php endif; ?>
-                        EN
+                        <?php if (!$is_arabic) : ?><?php echo drillcorp_get_svg_icon('check'); ?><?php endif; ?>
+                        <?php esc_html_e('English', 'drillcorp'); ?>
                     </a>
                 </li>
-                <li role="menuitem">
+                <li role="menuitem" class="<?php echo $is_arabic ? 'is-active' : ''; ?>">
                     <a href="<?php echo esc_url($link_ar); ?>">
-                        <?php if ($ar_flag_url) : ?>
-                            <img src="<?php echo esc_url($ar_flag_url); ?>" alt="Arabic" width="20" height="20" />
-                        <?php endif; ?>
-                        AR
+                        <?php if ($is_arabic) : ?><?php echo drillcorp_get_svg_icon('check'); ?><?php endif; ?>
+                        <?php esc_html_e('Arabic', 'drillcorp'); ?>
                     </a>
                 </li>
             </ul>

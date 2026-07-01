@@ -378,22 +378,10 @@ if (class_exists('CSF')) {
 				'default' => '#',
 			),
 			array(
-				'id'    => 'en_flag_icon',
-				'type'  => 'media',
-				'title' => esc_html__('English Flag Icon', 'drillcorp'),
-				'desc'  => esc_html__('Upload a flag icon for the English language toggle.', 'drillcorp'),
-			),
-			array(
 				'id'      => 'ar_site_url',
 				'type'    => 'text',
 				'title'   => esc_html__('Arabic Site URL', 'drillcorp'),
 				'default' => '#',
-			),
-			array(
-				'id'    => 'ar_flag_icon',
-				'type'  => 'media',
-				'title' => esc_html__('Arabic Flag Icon', 'drillcorp'),
-				'desc'  => esc_html__('Upload a flag icon for the Arabic language toggle.', 'drillcorp'),
 			),
 		)
 	));
