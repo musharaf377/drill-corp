@@ -1028,6 +1028,14 @@ if (class_exists('CSF')) {
 					'default'    => esc_html__('No blog posts found.', 'drillcorp'),
 					'attributes' => array('placeholder' => esc_html__('No blog posts found.', 'drillcorp'))
 				),
+				array(
+					'id'         => 'blog_single_related_read_time_text',
+					'title'      => esc_html__('Read Time Text', 'drillcorp'),
+					'type'       => 'text',
+					'info'       => wp_kses(__('you can change <mark>read time</mark> text of the related insights section', 'drillcorp'), $allowed_html),
+					'default'    => esc_html__('Min Read', 'drillcorp'),
+					'attributes' => array('placeholder' => esc_html__('Min Read', 'drillcorp'))
+				),
 			)
 		)
 	));

@@ -163,7 +163,7 @@ $contact_info_repeater = cs_get_option('contact_info_social');
                                 <?php echo get_the_date(); ?>
                             </div>
                             <div class="blog-list-meta-dot"></div>
-                            <div class="blog-read-time"><?php echo drillcorp()->get_reading_time(get_the_ID()); ?> Min Read</div>
+                            <div class="blog-read-time"><?php echo drillcorp()->get_reading_time(get_the_ID()); ?> <?php echo esc_html(cs_get_option('blog_single_related_read_time_text', esc_html__('Min Read', 'drillcorp'))); ?></div>
                         </div>
                     </div>
                 </article>
