@@ -34,7 +34,12 @@
         $link_ar = rtrim($ar_url, '/') . '/' . ltrim($current_path, '/');
     }
 
-    $active_label = $is_arabic ? 'AR' : 'EN';
+    // Hardcoded since there's no 'drillcorp' .mo translation file for the AR site to pull from.
+    $lang_dropdown_title = $is_arabic ? 'اختر اللغة' : esc_html__('Choose Language', 'drillcorp');
+    $lang_label_en       = $is_arabic ? 'إنجليزي' : esc_html__('English', 'drillcorp');
+    $lang_label_ar       = $is_arabic ? 'عربي' : esc_html__('Arabic', 'drillcorp');
+
+    $active_label = $is_arabic ? $lang_label_ar : 'EN';
 ?>
 
 <nav class="navbar navbar-area navbar-expand-lg">
@@ -62,17 +67,17 @@
                     </svg>
                 </button>
                 <ul class="lang-dropdown" id="langDropdownMobile" role="menu">
-                    <li class="lang-dropdown-title" role="presentation"><?php esc_html_e('Choose Language', 'drillcorp'); ?></li>
+                    <li class="lang-dropdown-title" role="presentation"><?php echo esc_html($lang_dropdown_title); ?></li>
                     <li role="menuitem" class="<?php echo !$is_arabic ? 'is-active' : ''; ?>">
                         <a href="<?php echo esc_url($link_en); ?>">
                             <?php if (!$is_arabic) : ?><?php echo drillcorp_get_svg_icon('check'); ?><?php endif; ?>
-                            <?php esc_html_e('English', 'drillcorp'); ?>
+                            <?php echo esc_html($lang_label_en); ?>
                         </a>
                     </li>
                     <li role="menuitem" class="<?php echo $is_arabic ? 'is-active' : ''; ?>">
                         <a href="<?php echo esc_url($link_ar); ?>">
                             <?php if ($is_arabic) : ?><?php echo drillcorp_get_svg_icon('check'); ?><?php endif; ?>
-                            <?php esc_html_e('Arabic', 'drillcorp'); ?>
+                            <?php echo esc_html($lang_label_ar); ?>
                         </a>
                     </li>
                 </ul>
@@ -155,17 +160,17 @@
                 </svg>
             </button>
             <ul class="lang-dropdown" id="langDropdownDesktop" role="menu">
-                <li class="lang-dropdown-title" role="presentation"><?php esc_html_e('Choose Language', 'drillcorp'); ?></li>
+                <li class="lang-dropdown-title" role="presentation"><?php echo esc_html($lang_dropdown_title); ?></li>
                 <li role="menuitem" class="<?php echo !$is_arabic ? 'is-active' : ''; ?>">
                     <a href="<?php echo esc_url($link_en); ?>">
                         <?php if (!$is_arabic) : ?><?php echo drillcorp_get_svg_icon('check'); ?><?php endif; ?>
-                        <?php esc_html_e('English', 'drillcorp'); ?>
+                        <?php echo esc_html($lang_label_en); ?>
                     </a>
                 </li>
                 <li role="menuitem" class="<?php echo $is_arabic ? 'is-active' : ''; ?>">
                     <a href="<?php echo esc_url($link_ar); ?>">
                         <?php if ($is_arabic) : ?><?php echo drillcorp_get_svg_icon('check'); ?><?php endif; ?>
-                        <?php esc_html_e('Arabic', 'drillcorp'); ?>
+                        <?php echo esc_html($lang_label_ar); ?>
                     </a>
                 </li>
             </ul>
