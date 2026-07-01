@@ -989,7 +989,31 @@ if (class_exists('CSF')) {
 		'title'  => esc_html__('Blog Single Page', 'drillcorp'),
 		'parent' => 'pages_and_template',
 		'icon'   => 'fa fa-indent',
-		'fields' => Drillcorp_Group_Fields::page_layout_options(esc_html__('Blog Single', 'drillcorp'), 'blog_single')
+		'fields' => array_merge(
+			Drillcorp_Group_Fields::page_layout_options(esc_html__('Blog Single', 'drillcorp'), 'blog_single'),
+			array(
+				array(
+					'type'    => 'subheading',
+					'content' => '<h3>' . esc_html__('Related Insights Section', 'drillcorp') . '</h3>',
+				),
+				array(
+					'id'         => 'blog_single_related_heading',
+					'title'      => esc_html__('Section Heading', 'drillcorp'),
+					'type'       => 'text',
+					'info'       => wp_kses(__('you can change <mark>heading</mark> of the related insights section', 'drillcorp'), $allowed_html),
+					'default'    => esc_html__('More Industry Insights', 'drillcorp'),
+					'attributes' => array('placeholder' => esc_html__('More Industry Insights', 'drillcorp'))
+				),
+				array(
+					'id'         => 'blog_single_related_btn_text',
+					'title'      => esc_html__('Button Text', 'drillcorp'),
+					'type'       => 'text',
+					'info'       => wp_kses(__('you can change <mark>button text</mark> of the related insights section', 'drillcorp'), $allowed_html),
+					'default'    => esc_html__('View All Insights', 'drillcorp'),
+					'attributes' => array('placeholder' => esc_html__('View All Insights', 'drillcorp'))
+				),
+			)
+		)
 	));
 	/*  archive page options */
 	CSF::createSection($prefix . '_theme_options', array(

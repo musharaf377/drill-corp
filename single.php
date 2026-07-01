@@ -119,8 +119,8 @@ $contact_info_repeater = cs_get_option('contact_info_social');
 <section class="related-blog-area">
     <div class="container">
         <div class="section-heading">
-            <h2>More Industry Insights</h2>
-            <a class="primary-btn" href="/blog">View All Insights</a>
+            <h2><?php echo esc_html(cs_get_option('blog_single_related_heading', esc_html__('More Industry Insights', 'drillcorp'))); ?></h2>
+            <a class="primary-btn" href="/blog"><?php echo esc_html(cs_get_option('blog_single_related_btn_text', esc_html__('View All Insights', 'drillcorp'))); ?></a>
         </div>
 
         <?php
