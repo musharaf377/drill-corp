@@ -136,11 +136,9 @@ $contact_info_repeater = cs_get_option('contact_info_social');
 
         $query = new \WP_Query($args);
 
-        if (! $query->have_posts()) {
+        if (! $query->have_posts()) :
             echo '<p>' . esc_html(cs_get_option('blog_single_related_empty_text', esc_html__('No blog posts found.', 'drillcorp'))) . '</p>';
-            return;
-        }
-
+        else :
         ?>
         <div class="blog-list related-blog-list">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
@@ -171,6 +169,10 @@ $contact_info_repeater = cs_get_option('contact_info_social');
                 </article>
             <?php endwhile; ?>
         </div>
+        <?php
+        endif;
+        wp_reset_postdata();
+        ?>
     </div>
 </section>
 
