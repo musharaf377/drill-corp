@@ -121,17 +121,17 @@
   /* ==============================
     Language Toggle
    =============================== */
-  $(document).on('click', '#langToggleBtn', function (e) {
+  $(document).on('click', '.lang-toggle-btn', function (e) {
     e.stopPropagation();
-    var $dropdown = $('#langDropdown');
+    var $dropdown = $(this).closest('.lang-toggle-wrapper').find('.lang-dropdown');
     var isOpen = $dropdown.toggleClass('open').hasClass('open');
     $(this).attr('aria-expanded', isOpen ? 'true' : 'false');
   });
 
   $(document).on('click', function (e) {
     if (!$(e.target).closest('.lang-toggle-wrapper').length) {
-      $('#langDropdown').removeClass('open');
-      $('#langToggleBtn').attr('aria-expanded', 'false');
+      $('.lang-dropdown').removeClass('open');
+      $('.lang-toggle-btn').attr('aria-expanded', 'false');
     }
   });
 

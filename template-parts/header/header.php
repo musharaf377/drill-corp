@@ -61,7 +61,7 @@
             </div>
 
             <div class="lang-toggle-wrapper is-mobile">
-                <button class="lang-toggle-btn" id="langToggleBtn" aria-haspopup="true" aria-expanded="false">
+                <button class="lang-toggle-btn" id="langToggleBtnMobile" aria-haspopup="true" aria-expanded="false">
                     <svg class="lang-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L6 6L11 1" stroke="#0D1A21" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -70,7 +70,7 @@
                         <span class="lang-flag"><img src="<?php echo esc_url($active_flag_url); ?>" alt="<?php echo esc_attr($active_flag_alt); ?>" width="28" height="28" /></span>
                     <?php endif; ?>
                 </button>
-                <ul class="lang-dropdown" id="langDropdown" role="menu">
+                <ul class="lang-dropdown" id="langDropdownMobile" role="menu">
                     <li role="menuitem">
                         <a href="<?php echo esc_url($link_en); ?>">
                             <?php if ($en_flag_url) : ?>
@@ -159,7 +159,7 @@
         </div>
 
         <div class="lang-toggle-wrapper is-desktop">
-            <button class="lang-toggle-btn" id="langToggleBtn" aria-haspopup="true" aria-expanded="false">
+            <button class="lang-toggle-btn" id="langToggleBtnDesktop" aria-haspopup="true" aria-expanded="false">
                 <svg class="lang-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1L6 6L11 1" stroke="#0D1A21" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -168,7 +168,7 @@
                     <span class="lang-flag"><img src="<?php echo esc_url($active_flag_url); ?>" alt="<?php echo esc_attr($active_flag_alt); ?>" width="28" height="28" /></span>
                 <?php endif; ?>
             </button>
-            <ul class="lang-dropdown" id="langDropdown" role="menu">
+            <ul class="lang-dropdown" id="langDropdownDesktop" role="menu">
                 <li role="menuitem">
                     <a href="<?php echo esc_url($link_en); ?>">
                         <?php if ($en_flag_url) : ?>
