@@ -1020,6 +1020,14 @@ if (class_exists('CSF')) {
 					'default'    => esc_html__('View All Insights', 'drillcorp'),
 					'attributes' => array('placeholder' => esc_html__('View All Insights', 'drillcorp'))
 				),
+				array(
+					'id'         => 'blog_single_related_empty_text',
+					'title'      => esc_html__('No Posts Found Text', 'drillcorp'),
+					'type'       => 'text',
+					'info'       => wp_kses(__('you can change <mark>text</mark> shown when no related blog posts are found', 'drillcorp'), $allowed_html),
+					'default'    => esc_html__('No blog posts found.', 'drillcorp'),
+					'attributes' => array('placeholder' => esc_html__('No blog posts found.', 'drillcorp'))
+				),
 			)
 		)
 	));
