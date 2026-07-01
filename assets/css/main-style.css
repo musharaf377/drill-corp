@@ -892,11 +892,19 @@ section.footer-top-section {
 }
 
 .lang-toggle-wrapper.is-mobile {
-    display: none;
+  display: none;
 }
 
 body.rtl .lang-toggle-btn {
   flex-direction: row;
+}
+
+body.rtl .hero-slider-content {
+  justify-content: flex-end;
+}
+
+body.rtl .slider-progress-content {
+  width: 100%;
 }
 
 .lang-chevron {
