@@ -750,6 +750,14 @@ if (class_exists('CSF')) {
 				'desc'    => wp_kses(__('you can upload <mark> Thumbnail Image</mark> here it will overwrite customizer uploaded logo', 'drillcorp'), $allowed_html),
 			),
 			array(
+				'id'         => 'contact_info_btn_text',
+				'type'       => 'text',
+				'title'      => esc_html__('Button Text', 'drillcorp'),
+				'desc'       => wp_kses(__('you can change <mark>button text</mark> of the Contact Info toggle button', 'drillcorp'), $allowed_html),
+				'default'    => esc_html__('Contact US', 'drillcorp'),
+				'attributes' => array('placeholder' => esc_html__('Contact US', 'drillcorp'))
+			),
+			array(
 				'id'      => 'contact_info_name',
 				'type'    => 'text',
 				'title'   => esc_html__('Name', 'drillcorp'),

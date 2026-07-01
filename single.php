@@ -70,7 +70,7 @@ $contact_info_repeater = cs_get_option('contact_info_social');
                             <div class="blog-sidebar-area fixed-contact-section">
                                 <?php get_sidebar(); ?>
                                 <div class="contact-information">
-                                    <a href="javascript:void(0);" class="contact-us-link" onclick="return false;">Contact US <?php echo drillcorp_get_svg_icon('down_angle'); ?></a>
+                                    <a href="javascript:void(0);" class="contact-us-link" onclick="return false;"><?php echo esc_html(cs_get_option('contact_info_btn_text', esc_html__('Contact US', 'drillcorp'))); ?> <?php echo drillcorp_get_svg_icon('down_angle'); ?></a>
                                     <div class="contact-information-wrapper">
                                         <img class="contact-info-bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-info-bg.png" alt="">
                                         <div class="contact-info-content">
@@ -177,7 +177,7 @@ $contact_info_repeater = cs_get_option('contact_info_social');
 
 <!-- Contact info button fixed -->
 <div class="contact-information fixed-contact-button">
-    <a href="javascript:void(0);" class="contact-us-link" onclick="return false;">Contact US <?php echo drillcorp_get_svg_icon('down_angle'); ?></a>
+    <a href="javascript:void(0);" class="contact-us-link" onclick="return false;"><?php echo esc_html(cs_get_option('contact_info_btn_text', esc_html__('Contact US', 'drillcorp'))); ?> <?php echo drillcorp_get_svg_icon('down_angle'); ?></a>
     <div class="contact-information-wrapper">
         <img class="contact-info-bg" src="<?php echo get_template_directory_uri(); ?>/assets/img/contact-info-bg.png" alt="">
         <div class="contact-info-content">
